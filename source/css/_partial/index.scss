@@ -1,0 +1,100 @@
+
+$width: 1050px;
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 140px;
+  background: url(https://img.xiaoyou66.com/images/2020/02/06/tKb5.jpg) repeat;
+  // background-attachment: fixed;
+  // background-size: cover;
+}
+.header {
+  width: 100%;
+  height: 140px;
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 9;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0; top: 0;
+    background: url(http://img.xiaoyou66.com/images/2021/01/23/VlmhX.png) no-repeat;
+    background-size: cover;
+    opacity: .7;
+  }
+  &-container {
+    width: $width;
+    position: relative;
+    z-index: 2;
+    .logreg {
+      &-log {
+        padding: 10px 20px;
+        background-color: #1E90FF;
+        border-radius: 3px;
+      }
+      &-reg {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.main-container {
+  width: $width;
+  margin: 15px auto;
+  background-size: cover;
+  .main-left, .main-right {
+    width: 200px;
+    height: calc(100vh - 165px);
+    position: fixed;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    &::-webkit-scrollbar-track {
+      width: 7px;
+      border-radius: 3px;
+      background-color: #eee;
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 7px;
+      height: 7px;
+      border-radius: 3px;
+      background: #ccc;
+    }
+  }
+  .main-right {
+    width: 250px;
+    right: calc((100% - 1050px) / 2);
+  }
+  // .main {
+  //   width: 600px;
+  //   padding: 0 15px;
+  //   margin: 0 auto;
+  // }
+}
+
+.menu {
+  box-shadow: 0 0 5px #ccc;
+  position: fixed;
+  border-radius: 5px;
+  width: 180px;
+  overflow: hidden;
+  &-item {
+    border-bottom: 1px dashed #ddd;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+  &-music {
+    border-bottom: 1px dashed #ddd;
+  }
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}

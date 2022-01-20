@@ -1,0 +1,11 @@
+<head>
+  <meta charset="utf-8">
+  <%
+    var title = page.title;
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="<%- url_for('css/public.css') %>" />
+  <link rel="stylesheet" href="<%- url_for('css/layout.css') %>" />
+  <link rel="stylesheet" href="<%- url_for('css/iconfont.css') %>" />
+</head>

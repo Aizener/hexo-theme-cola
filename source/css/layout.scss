@@ -1,0 +1,103 @@
+$mainWidth: 1200px;
+$headerHeight: 100px;
+$footerHeight: 80px;
+
+.container {
+  background: url(https://img.xiaoyou66.com/images/2020/02/06/tKb5.jpg) repeat;
+}
+.header {
+  height: $headerHeight;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    left: 0;
+    top: 0;
+    background: url(http://img.xiaoyou66.com/images/2021/01/23/VlmhX.png) no-repeat;
+  }
+  &-wrapper {
+    width: $mainWidth;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+  &-search {
+    display: flex;
+    &--input {
+      width: 350px;
+    }
+    &--icon {
+      padding: 0 10px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      border: 1px solid #eee;
+    }
+  }
+  &-menu {
+    display: flex;
+    & > li {
+      margin-right: 20px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      & > a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        display: flex;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        width: 0;
+        height: 3px;
+        background-color: #fff;
+        transition: width .3s;
+        border-radius: 5px;
+      }
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+    &--icon {
+      align-self: flex-end;
+    }
+    &--span {
+      margin-left: 3px;
+    }
+  }
+}
+.main {
+  width: $mainWidth;
+  height: calc(100vh - #{$headerHeight} - #{$footerHeight});
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.footer {
+  width: $mainWidth;
+  height: $footerHeight;
+  margin: 0 auto;
+  &-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+}
