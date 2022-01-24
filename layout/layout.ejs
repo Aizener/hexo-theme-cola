@@ -3,9 +3,11 @@
 <%- partial('_partial/head') %>
 <body>
   <div id="container" class="container w-100 vh-100">
-    <%- partial('_partial/header', null, { cache: !config.relative_link}) %> 
+    <%- partial('_partial/header', null, { cache: !config.relative_link }) %> 
     <section id="main" class="main">
-      <%- body %>
+      <div class="main-left-wrapper"><%- partial('_partial/main-left', null, { cache: !config.relative_link }) %></div>
+      <div class="main-container"><%- body %></div>
+      <div class="main-right-wrapper"><%- partial('_partial/main-right', null, { cache: !config.relative_link }) %></div>
     </section>
     <%- partial('_partial/footer', null, { cache: !config.relative_link }) %> 
   </div>

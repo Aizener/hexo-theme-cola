@@ -1,0 +1,49 @@
+<div class="main-right">
+  <div class="main-right--board">
+    <div class="main-right--title">
+      <h5>公告栏</h5>
+      <i class="iconfont icon-gonggao"></i>
+    </div>
+    <div class="main-right--content">
+      Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
+    </div>
+  </div>
+
+  <div id="aplayer" class="main-right--music"></div>
+
+  <div class="main-right--site">
+    <div class="main-right--power">
+      <p>Power By <a href="https://hexo.io/zh-cn/docs/">Hexo</a>.</p>
+      <p>Theme：<a href="">Cola.</a></p>
+    </div>
+    <p class="main-right--refer">浙公网安备 33010002000124号</p>
+  </div>
+</div>
+
+<script>
+  console.log(APlayer)
+  const ap = new APlayer({
+    container: document.querySelector('#aplayer'),
+    audio: [{
+      name: 'kabuda',
+      artist: 'kabuda',
+      url: '<%- url_for("music/kabuda.mp3") %>',
+    },{
+      name: 'kabuda',
+      artist: 'kabuda',
+      url: '<%- url_for("music/kabuda.mp3") %>',
+    },{
+      name: 'kabuda',
+      artist: 'kabuda',
+      url: '<%- url_for("music/kabuda.mp3") %>',
+    },{
+      name: 'kabuda',
+      artist: 'kabuda',
+      url: '<%- url_for("music/kabuda.mp3") %>',
+    },{
+      name: 'kabuda',
+      artist: 'kabuda',
+      url: '<%- url_for("music/kabuda.mp3") %>',
+    }]
+  });
+</script>
