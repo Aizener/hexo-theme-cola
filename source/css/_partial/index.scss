@@ -1,4 +1,5 @@
 .index {
+  min-height: 100vh;
   display: flex;
   padding-bottom: 50px;
   &-right {
@@ -23,7 +24,7 @@
         margin-top: 15px;
         padding: 7px;
       }
-      .categories {
+      .category-list {
         margin-top: 0;
         display: flex;
         flex-direction: column;
@@ -39,6 +40,7 @@
             background: orange;
             a {
               color: #fff;
+              display: block;
             }
           }
           // a {
@@ -71,19 +73,19 @@
         }
       }
 
-      .archive {
+      .archive-list {
         padding: 10px;
-        & > a > li {
+        & > li {
           display: flex;
           justify-content: space-between;
           padding: 3px 0;
           &:hover {
-            & > span:first-child {
+            & > a:first-child {
               transform: translateX(5px);
+              text-decoration: underline;
             }
-            text-decoration: underline;
           }
-          span {
+          & > span, & > a {
             color: #333;
             font-size: 13px;
             transition: all .3s;

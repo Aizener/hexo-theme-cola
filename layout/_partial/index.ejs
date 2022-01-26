@@ -1,238 +1,78 @@
-<!-- <link rel="stylesheet" href="<%- url_for('css/_') %>" />  -->
+<%
+  const leftPosts = [], rightPosts = []
+  site.posts.each(function(post, i) {
+    if (i % 2 === 0) {
+      leftPosts.push(post)
+    } else {
+      rightPosts.push(post)
+    }
+  })
+%>
+
 <div class="index">
   <div class="index-left">
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=4006881629,216814298&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=433" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
+    <% leftPosts.forEach(function(post){ %>
+      <div class="index-article">
+        <img class="index-article--cover" src="<%- post.cover %>" alt="">
+        <div class="index-article--content">
+          <a href=""><%- post.title %> </a>
+          <div>
+            <p>
+              <%- list_categories(post.categories, {
+                show_count: false,
+                style: null,
+                class: 'post-category',
+                transform(str) {
+                  return titlecase(str);
+                }
+              }) %>
+            </p>
+            <p>
+              <%- list_tags(post.tags, { class: '', style: null, show_count: false, separator: '<span> · </span>' }) %>
+            </p>
+          </div>
+          <div class="bg"></div>
         </div>
-        <div class="bg"></div>
       </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=2244173343,977594898&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=281" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img2.baidu.com/it/u=3632075531,761329286&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=391" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=2244173343,977594898&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=281" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img2.baidu.com/it/u=3632075531,761329286&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=391" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
+    <% }) %>
   </div>
   <div class="index-center">
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img2.baidu.com/it/u=3632075531,761329286&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=391" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
+    <% rightPosts.forEach(function(post){ %>
+      <div class="index-article">
+        <img class="index-article--cover" src="<%- post.cover %>" alt="">
+        <div class="index-article--content">
+          <a href=""><%- post.title %> </a>
+          <div>
+            <p>
+              <%- list_categories(post.categories, {
+                show_count: false,
+                style: null,
+                transform(str) {
+                  return titlecase(str)
+                }
+              }) %>
+            </p>
+            <p>
+              <%- list_tags(post.tags, { class: '', style: null, show_count: false, separator: '<span> · </span>' }) %>
+            </p>
+          </div>
+          <div class="bg"></div>
         </div>
-        <div class="bg"></div>
       </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=4006881629,216814298&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=433" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=2244173343,977594898&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=281" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=4006881629,216814298&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=433" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
-    <div class="index-article">
-      <img class="index-article--cover" src="https://img0.baidu.com/it/u=2244173343,977594898&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=281" alt="">
-      <div class="index-article--content">
-        <a href="">优雅地修改他人贡献的 Pull Request</a>
-        <div>
-          <p><a href="">Web前端</a></p>
-          <p>
-            <a href="">Vue</a>
-            <span>·</span>
-            <a href="">Hexo</a>
-            <span>·</span>
-            <a href="">Node</a>
-          </p>
-        </div>
-        <div class="bg"></div>
-      </div>
-    </div>
+    <% }) %>
   </div>
   <div class="index-right">
     <div class="index-right-wrapper">
-      <ul class="categories">
-        <li><a href="">最新发布</a></li>
-        <li><a href="">Web前端</a></li>
-        <li><a href="">服务端</a></li>
-        <li><a href="">日常分享</a></li>
-        <li><a href="">随笔记录</a></li>
-      </ul>
-      <ul class="tags">
-        <li><a href="">Vue</a></li>
-        <li><a href="">Node</a></li>
-        <li><a href="">CSS3</a></li>
-        <li><a href="">Canvas</a></li>
-        <li><a href="">NestJS</a></li>
-        <li><a href="">随记</a></li>
-        <li><a href="">Hexo</a></li>
-        <li><a href="">Chrome插件</a></li>
-        <li><a href="">随记</a></li>
-        <li><a href="">Hexo</a></li>
-      </ul>
-      <ul class="archive">
-        <a href="">
-          <li>
-            <span>2022年1月</span>
-            <span>1</span>
-          </li>
-        </a>
-        <a href="">
-          <li>
-            <span>2021年12月</span>
-            <span>10</span>
-          </li>
-        </a>
-        <a href="">
-          <li>
-            <span>2021年11月</span>
-            <span>23</span>
-          </li>
-        </a>
-        <a href="">
-          <li>
-            <span>2021年10月</span>
-            <span>5</span>
-          </li>
-        </a>
-        <a href="">
-          <li>
-            <span>2021年09月</span>
-            <span>3</span>
-          </li>
-        </a>
-        <a href="">
-          <li>
-            <span>2021年09月</span>
-            <span>3</span>
-          </li>
-        </a>
-      </ul>
+      <%- list_categories(site.categories, {
+        show_count: false,
+        transform(str) {
+          return titlecase(str)
+        },
+      }) %>
+      <%- list_tags(site.tags, { class: { ul: 'tags' }, show_count: false }) %>
+      <%- list_archives({ order: -1, format: 'YYYY年MM月', transform(str) {
+        return str
+      } }) %>
       <div class="backtop">
         <i class="iconfont icon-huidaodingbu"></i>
         <span>回到顶部</span>
