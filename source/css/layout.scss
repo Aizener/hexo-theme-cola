@@ -5,7 +5,10 @@ $mainLeftWidth: 200px;
 $mainRightWidth: 250px;
 
 .container {
-  background: url(https://img.xiaoyou66.com/images/2020/02/06/tKb5.jpg) no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: url(https://img.xiaoyou66.com/images/2020/02/06/tKb5.jpg) repeat;
   background-size: cover;
   background-attachment: fixed;
   padding-top: $headerHeight;
@@ -128,7 +131,7 @@ $mainRightWidth: 250px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: url('/img/avatar-bg.jpeg') no-repeat;
+      background: url('/imgs/avatar-bg.jpeg') no-repeat;
       background-size: cover;
     }
     &--avatar {

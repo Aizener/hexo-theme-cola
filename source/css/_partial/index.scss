@@ -182,7 +182,7 @@
         & > div {
           height: auto;
           opacity: 1;
-        transform: translateY(15px);
+          transform: translateY(15px);
         }
       }
     }
@@ -212,6 +212,8 @@
         color: #fff;
         font-size: 14px;
         font-weight: bold;
+        margin: 0 30px;
+        text-align: center;
         &:hover {
           text-decoration: underline;
         }

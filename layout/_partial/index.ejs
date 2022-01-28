@@ -13,9 +13,9 @@
   <div class="index-left">
     <% leftPosts.forEach(function(post){ %>
       <div class="index-article">
-        <img class="index-article--cover" src="<%- post.cover %>" alt="">
+        <img class="index-article--cover" src="<%- url_for(post.cover) %>" alt="">
         <div class="index-article--content">
-          <a href=""><%- post.title %> </a>
+          <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
             <p>
               <%- list_categories(post.categories, {
@@ -28,7 +28,7 @@
               }) %>
             </p>
             <p>
-              <%- list_tags(post.tags, { class: '', style: null, show_count: false, separator: '<span> · </span>' }) %>
+              <%- list_tags(post.tags, { class: '', order: -1, style: null, show_count: false, separator: '<span> ◆ </span>' }) %>
             </p>
           </div>
           <div class="bg"></div>
@@ -39,9 +39,9 @@
   <div class="index-center">
     <% rightPosts.forEach(function(post){ %>
       <div class="index-article">
-        <img class="index-article--cover" src="<%- post.cover %>" alt="">
+        <img class="index-article--cover" src="<%- url_for(post.cover) %>" alt="">
         <div class="index-article--content">
-          <a href=""><%- post.title %> </a>
+          <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
             <p>
               <%- list_categories(post.categories, {
@@ -53,7 +53,7 @@
               }) %>
             </p>
             <p>
-              <%- list_tags(post.tags, { class: '', style: null, show_count: false, separator: '<span> · </span>' }) %>
+              <%- list_tags(post.tags, { class: '', order: -1, style: null, show_count: false, separator: '<span> ◆ </span>' }) %>
             </p>
           </div>
           <div class="bg"></div>
@@ -69,7 +69,7 @@
           return titlecase(str)
         },
       }) %>
-      <%- list_tags(site.tags, { class: { ul: 'tags' }, show_count: false }) %>
+      <%- list_tags(site.tags, { class: { ul: 'tags' }, order: -1, show_count: false }) %>
       <%- list_archives({ order: -1, format: 'YYYY年MM月', transform(str) {
         return str
       } }) %>

@@ -1,0 +1,28 @@
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title"><%- post.title %></h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--categories">
+          <span>分类：</span>
+          <%- list_categories(post.categories, {
+            show_count: false,
+            style: false,
+            transform(str) {
+              return titlecase(str);
+            }
+          }) %>
+        </div>
+        <p class="article-info--date">日期：<%- date(post.date, 'YYYY年MM月DD日 HH时mm时ss秒') %></p>
+      </div>
+      <div class="article-info--item">
+        <span>标签：</span>
+        <%- list_tags(post.tags, { style: false, show_count: false, separator: '' }) %>
+      </div>
+    </div>
+    <article class="article-content">
+      <%- post.content %>
+    </article>
+  </div>
+  <div class="article-catelogue"></div>
+</div>
