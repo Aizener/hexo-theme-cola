@@ -24,5 +24,45 @@
       <%- post.content %>
     </article>
   </div>
-  <div class="article-catelogue"></div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <%- toc(post.content) %>
+      </div>
+      <div class="catelogue catelogue-2">
+        <% if (page.prev) { %>
+          <p>
+            <span>上一篇：</span>
+            <a href="/<%- page.prev.path -%>"><%- page.prev.title -%></a>
+          </p>
+        <% } %> 
+        <% if (page.next) { %>
+          <p>
+            <span>下一篇</span>
+            <a href="/<%- page.next.path -%>"><%- page.next.title -%></a>
+          </p>
+        <% } %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  const tocs = document.querySelector('.toc')
+  const as = tocs.querySelectorAll('a')
+  as.forEach(a => {
+    a.addEventListener('click', e => {
+      const href = decodeURIComponent(a.href)
+      href.search(/#(.*)/)
+      const id = RegExp.$1
+      const target = document.querySelector('#' + id)
+      const top = target.offsetTop
+      document.documentElement.scrollTo({
+        top: top - 100,
+        behavior: 'smooth'
+      })
+      e.preventDefault()
+    })
+  })
+</script>

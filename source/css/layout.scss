@@ -8,7 +8,7 @@ $mainRightWidth: 250px;
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  background: url(https://img.xiaoyou66.com/images/2020/02/06/tKb5.jpg) repeat;
+  background: url('/imgs/bg-cover.jpeg') repeat;
   background-size: cover;
   background-attachment: fixed;
   padding-top: $headerHeight;
@@ -32,7 +32,7 @@ $mainRightWidth: 250px;
     opacity: .8;
     left: 0;
     top: 0;
-    background: url(http://img.xiaoyou66.com/images/2021/01/23/VlmhX.png) no-repeat;
+    background: url('/imgs/top-cover.jpeg') no-repeat;
     background-size: cover;
   }
   &-wrapper {
@@ -119,7 +119,7 @@ $mainRightWidth: 250px;
       overflow: hidden;
       background-color: #fff;
       box-shadow: 0 0 5px #333;
-      margin-top: 20px;
+      margin-top: 15px;
       &:first-child {
         margin-top: 0;
       }
@@ -336,5 +336,49 @@ $mainRightWidth: 250px;
     justify-content: center;
     align-items: center;
     color: #fff;
+  }
+}
+
+.backtop {
+  background-color: #fff;
+  padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 0 5px #333;
+  color: #333;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    transition: all .3s;
+    border-radius: 50%;
+    transform: scale(0);
+  }
+  &:hover {
+    color: #fff;
+    &::after {
+      transform: scale(1);
+      border-radius: 0;
+    }
+  }
+  i {
+    font-size: 24px;
+    z-index: 2;
+    transition: all .3s;
+  }
+  span {
+    margin-top: 5px;
+    font-size: 13px;
+    z-index: 2;
+    transition: all .3s;
   }
 }

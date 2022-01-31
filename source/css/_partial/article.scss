@@ -1,5 +1,5 @@
 .article {
-  width: calc(100% - 100px);
+  width: calc(100% - 200px);
   padding: 15px;
   border-radius: 10px;
   background-color: #fff;
@@ -10,7 +10,47 @@
     display: flex;
   }
   &-catelogue {
-    width: 100px;
+    width: 200px;
+    &--wrapper {
+      width: 200px;
+      padding-left: 15px;
+      position: fixed;
+    }
+    .catelogue {
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 0 5px #333;
+      background-color: #fff;
+      &-1 {
+        margin-top: 0;
+        .toc {
+          margin-top: 10px;
+        }
+        .toc-link {
+          font-size: 14px;
+          text-decoration: underline;
+        }
+        .toc-child {
+          margin-left: 10px;
+        }
+      }
+      &-2 {
+        font-size: 14px;
+        p {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            color: gray;
+            min-width: 60px;
+          }
+        }
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
   }
   * {
     user-select: text;

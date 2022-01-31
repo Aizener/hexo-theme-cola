@@ -1,6 +1,6 @@
 <%
   const leftPosts = [], rightPosts = []
-  site.posts.each(function(post, i) {
+  page.posts.each(function(post, i) {
     if (i % 2 === 0) {
       leftPosts.push(post)
     } else {
@@ -13,7 +13,7 @@
   <div class="index-left">
     <% leftPosts.forEach(function(post){ %>
       <div class="index-article">
-        <img class="index-article--cover" src="<%- url_for(post.cover) %>" alt="">
+        <img class="index-article--cover" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt="">
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
@@ -39,7 +39,7 @@
   <div class="index-center">
     <% rightPosts.forEach(function(post){ %>
       <div class="index-article">
-        <img class="index-article--cover" src="<%- url_for(post.cover) %>" alt="">
+        <img class="index-article--cover" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt="">
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
