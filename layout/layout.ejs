@@ -11,5 +11,22 @@
     </section>
     <%- partial('_partial/footer', null, { cache: !config.relative_link }) %> 
   </div>
+
+  <script>
+    const doc = document.documentElement
+    const pageHeight = doc.offsetHeight
+    const clientHeight = doc.clientHeight
+    NProgress.configure({
+      parent: 'body',
+      showSpinner: false,
+      minimum: 0,
+    })
+    document.addEventListener('scroll', () => {
+      const scrollTop = doc.scrollTop
+      let ratio = scrollTop / (pageHeight - clientHeight)
+      ratio = ratio > .99 ? .99999 : ratio
+      NProgress.set(ratio)
+    })
+  </script>
 </body>
 </html>

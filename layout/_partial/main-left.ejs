@@ -1,42 +1,52 @@
+<%
+  const posts = site.posts
+  const archives = []
+  site.posts.each(function(post) {
+    const _date = date(post.date, 'YYYYMM')
+    if (!archives.includes(_date)) {
+      archives.push(_date)
+    }
+  })
+%>
 <div class="main-left">
   <div class="main-left--block">
     <div class="main-left--info">
       <img src="<%- url_for('imgs/avatar.jpg') %>"" class="main-left--avatar" />
       <div class="main-left--intro">
-        <p class="main-left--name">Cola.</p>
+        <p class="main-left--name"><%- theme.author_name %></p>
         <div class="main-left--tags">
-          <span class="main-left--tag">中二</span>
-          <span class="main-left--tag">宅</span>
+          <span class="main-left--tag"><%- theme.tag1 %></span>
+          <span class="main-left--tag"><%- theme.tag2 %></span>
         </div>
       </div>
     </div>
   
     <div>
       <div class="main-left--motto">
-        <p>“花有重开日，人无再少年”</p>
-        <p>“一个简单普通的男孩”</p>
+        <p><%- theme.motto_prev %></p>
+        <p><%- theme.motto_last %></p>
       </div>
       <div class="main-left--github">
         <span class="line"></span>
-        <a href=""><i class="logo iconfont icon-github-fill"></i></a>
+        <a href="<%- theme.github_url %>"><i class="logo iconfont icon-github-fill"></i></a>
         <span class="line"></span>
       </div>
       <div class="main-left--statics">
         <a href="">
           <div>
-            <span>12</span>
+            <span><%- site.categories.length %></span>
             <span>分类</span>
           </div>
         </a>
         <a href="">
           <div>
-            <span>24</span>
+            <span><%- site.tags.length %></span>
             <span>标签</span>
           </div>
         </a>
         <a href="">
           <div>
-            <span>33</span>
+            <span><%- archives.length %> </span>
             <span>归档</span>
           </div>
         </a>
@@ -47,7 +57,7 @@
   <div class="main-left--block">
     <ul class="main-left--menu">
       <li>
-        <a href="">
+        <a href="/">
           <span class="header-menu--span">小站首页</span>
           <i class="header-menu--icon iconfont icon-shouye"></i>
         </a>
@@ -81,7 +91,7 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>53篇</span>
+        <span><%- site.posts.length %> 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>

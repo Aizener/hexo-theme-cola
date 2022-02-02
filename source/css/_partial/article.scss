@@ -9,6 +9,15 @@
     width: 100%;
     display: flex;
   }
+  &-cover {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    -o-object-fit: cover;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
   &-catelogue {
     width: 200px;
     &--wrapper {
@@ -59,7 +68,6 @@
     margin-top: 20px;
     &--item {
       display: flex;
-      align-items: center;
       font-size: 14px;
       color: #666;
       margin-top: 10px;
@@ -67,11 +75,20 @@
         justify-content: space-between;
       }
     }
+    &--info {
+      overflow: hidden;
+    }
     &--categories {
       display: flex;
       a {
         color: #1e80ff;
       }
+    }
+    &--tags {
+      margin-top: 10px;
+    }
+    &--date {
+      margin-top: 10px;
     }
     a {
       &:hover {

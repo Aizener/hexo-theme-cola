@@ -43,6 +43,9 @@ $mainRightWidth: 250px;
     position: relative;
     z-index: 10;
   }
+  &-left {
+    position: relative;
+  }
   &-search {
     display: flex;
     &--input {
@@ -57,6 +60,73 @@ $mainRightWidth: 250px;
       border: 1px solid #ddd;
       border-radius: 0 5px 5px 0;
       overflow: hidden;
+      cursor: pointer;
+    }
+    &--layer {
+      width: 100%;
+      margin-top: 2px;
+      border-radius: 5px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: all .5s;
+      position: absolute;
+      &.hidden {
+        position: absolute;
+        opacity: 0;
+        transform: translateY(10px);
+        visibility: hidden;
+        z-index: -1;
+      }
+      .title {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #999;
+        padding: 0 10px 10px 5px;
+        display: flex;
+        justify-content: space-between;
+        span:last-child {
+          color: #333;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+      .empty {
+        font-size: 14px;
+        color: #999;
+        padding: 15px 0;
+        text-align: center;
+      }
+      ul {
+        max-height: 300px;
+        overflow-y: scroll;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          a {
+            &:hover {
+              text-decoration: underline;
+            }
+            span {
+              color: red;
+            }
+          }
+        }
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+        }
+      }
     }
   }
   &-menu {
@@ -180,6 +250,10 @@ $mainRightWidth: 250px;
         font-size: 24px;
         color: #666;
         margin: 0 10px;
+        border-radius: 50%;
+        &:hover {
+          box-shadow: 0 0 5px #333;
+        }
       }
     }
     &--site {

@@ -5,7 +5,7 @@
       <i class="iconfont icon-gonggao"></i>
     </div>
     <div class="main-right--content">
-      Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
+      <%- theme.notice %> 
     </div>
   </div>
 
@@ -19,14 +19,13 @@
   <div class="main-right--site">
     <div class="main-right--power">
       <p>Power By <a href="https://hexo.io/zh-cn/docs/">Hexo</a>.</p>
-      <p>Theme：<a href="">Cola.</a></p>
+      <p>Theme：<a href="https://github.com/Aizener/hexo-theme-cola">Cola.</a></p>
     </div>
-    <p class="main-right--refer">浙公网安备 33010002000124号</p>
+    <p class="main-right--refer"><%- theme.record %> </p>
   </div>
 </div>
 
 <script>
-  console.log(APlayer)
   const ap = new APlayer({
     container: document.querySelector('#aplayer'),
     audio: [{
@@ -51,4 +50,11 @@
       url: '<%- url_for("music/kabuda.mp3") %>',
     }]
   });
+
+  document.querySelector('.backtop').addEventListener('click', () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  })
 </script>

@@ -1,66 +1,13 @@
-# Header
-menu:
-  Home: /
-  Archives: /archives
-rss: /atom.xml
-banner: "images/banner.jpg"
+author_name: Cola.
 
-# Content
-excerpt_link: Read More
-fancybox: true
+tag1: 中二
+tag2: 宅
 
-# # Footer
-# copyright: |-
-#   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>
-#   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></br>
+github_url: https://github.com/Aizener
 
-# Footer
-copyright:
-# Need help choosing? Please see...
-# https://creativecommons.org/choose/
-# https://choosealicense.com/
-# You can use html like below...
-# copyright: |-
-#   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>
-#   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></br>
+motto_prev: “花有重开日，人无再少年”
+motto_last: “一个简单普通的男孩”
 
-# Sidebar
-sidebar: right
-widgets:
-- category
-- tag
-- tagcloud
-- archive
-- recent_posts
+notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
 
-# display widgets at the bottom of index pages (pagination == 2)
-index_widgets:
-# - category
-# - tagcloud
-# - archive
-
-# Widget behavior
-archive_type: 'monthly'
-show_count: false
-recent_posts_limits: 5
-
-# Miscellaneous
-google_analytics:
-gauges_analytics:
-favicon: /favicon.png
-twitter:
-fb_admins:
-fb_app_id:
-
-# valine comment system. https://valine.js.org
-valine:
-  enable: false # if you want use valine,please set this value is true
-  appId:  # leancloud application app id
-  appKey:  # leancloud application app key
-  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
-  verify: false # valine verify code (true/false)
-  pageSize: 10 # comment list page size
-  avatar: mm # gravatar style https://valine.js.org/#/avatar
-  lang: zh-cn # i18n: zh-cn/en
-  placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
-  guest_info: nick,mail,link #valine comment header info
+record: 浙公网安备 33010002000124号
