@@ -1,3 +1,7 @@
-<div class="archive">
-    Archive
-</div>
+<%if (page.path === 'archives/index.html') { %>
+    <%- list_archives({ order: -1, format: 'YYYY年MM月', transform(str) {
+        return str
+    } }) %>
+<% } else { %>
+    <%- partial('_partial/index.ejs') %> 
+<% } %>

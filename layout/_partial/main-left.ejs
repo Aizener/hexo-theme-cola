@@ -7,6 +7,12 @@
       archives.push(_date)
     }
   })
+
+  const menu = theme.menu.map(m => ({
+    title: m[0],
+    path: m[1],
+    icon: m[2],
+  }))
 %>
 <div class="main-left">
   <div class="main-left--block">
@@ -32,7 +38,7 @@
         <span class="line"></span>
       </div>
       <div class="main-left--statics">
-        <a href="">
+        <a href="_widget/category">
           <div>
             <span><%- site.categories.length %></span>
             <span>分类</span>
@@ -56,30 +62,14 @@
 
   <div class="main-left--block">
     <ul class="main-left--menu">
-      <li>
-        <a href="/">
-          <span class="header-menu--span">小站首页</span>
-          <i class="header-menu--icon iconfont icon-shouye"></i>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <span class="header-menu--span">个人日志</span>
-          <i class="header-menu--icon iconfont icon-rizhi"></i>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <span class="header-menu--span">友情链接</span>
-          <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <span class="header-menu--span">关于自己</span>
-          <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
-        </a>
-      </li>
+      <% menu.forEach(function(m){ %>
+        <li>
+          <a href="<%- m.path %>">
+            <span class="header-menu--span"><%- m.title %></span>
+            <i class="header-menu--icon iconfont <%- m.icon %>"></i>
+          </a>
+        </li>
+      <% }) %>
     </ul>
   </div>
 
