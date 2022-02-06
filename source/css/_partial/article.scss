@@ -49,7 +49,11 @@
         p {
           display: flex;
           justify-content: space-between;
+          word-break: break-all;
           align-items: center;
+          &:first-child {
+            margin-bottom: 10px;
+          }
           span {
             color: gray;
             min-width: 60px;

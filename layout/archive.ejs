@@ -1,7 +1,52 @@
+<%
+    const posts = site.posts
+    const archives = {}
+    posts.each(function(post) {
+        const _date = date(post.date, 'YYYY-MM-DD').split('-')
+        const year = _date[0]
+        const month = _date[1]
+        if (!archives[year]) {
+            archives[year] = {}
+        }
+        const months = archives[year]
+        if (!months[month]) {
+            months[month] = []
+        }
+        months[month].push({ title: post.title, path: post.path, date: _date[2] })
+    })
+%>
+<script>
+    const target = `<%- (JSON.stringify(archives)) %>`
+    console.log(target)
+</script>
 <%if (page.path === 'archives/index.html') { %>
-    <%- list_archives({ order: -1, format: 'YYYY年MM月', transform(str) {
-        return str
-    } }) %>
+    <div class="archive">
+        <h1 class="archive-title">我の博客归档记录</h1>
+        <ul class="archive-list">
+            <% Object.keys(archives).forEach(year => { %>
+                <li class="archive-list__year">
+                    <h2><%- year %>年</h2>
+                    <ul>
+                        <% Object.keys(archives[year]).forEach(month => { %>
+                            <li class="archive-list__month">
+                                <h3>第<%- month -%>の月</h3>
+                                <ul>
+                                    <% archives[year][month].forEach(post => { %>
+                                        <li class="archive-list__post">
+                                            <div>
+                                                <a href="/<%- post.path %>"><%- post.title %></a>
+                                                <span><%- month %>月<%- post.date %>日</span>
+                                            </div>
+                                        </li>
+                                    <% }) %>
+                                </ul>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
 <% } else { %>
     <%- partial('_partial/index.ejs') %> 
 <% } %>
