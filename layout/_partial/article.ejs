@@ -16,7 +16,7 @@
           </div>
           <div class="article-info--tags">
             <span>标签：</span>
-            <%- list_tags(post.tags, { style: false, show_count: false, separator: '' }) %>
+            <%- post.tags ? list_tags(post.tags, { style: false, show_count: false, separator: '' }) : '' %>
           </div>
           <p class="article-info--date">日期：<%- date(post.date, 'YYYY-MM-DD HH:mm:ss') %></p>
         </div>

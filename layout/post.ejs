@@ -1,1 +1,9 @@
-<%- partial('_partial/article.ejs', { post: page, index: false }) %> 
+
+
+<%if (page.path === 'categories/index.html') { %>
+  <%- partial('_partial/category', { cache: !config.relative_link }) %>
+<% } else if (page.path === 'tags/index.html') { %>
+  <%- partial('_partial/tags', { cache: !config.relative_link }) %>
+<% } else { %>
+  <%- partial('_partial/article.ejs', { post: page, index: false }) %> 
+<% } %>
