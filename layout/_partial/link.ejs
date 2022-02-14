@@ -1,0 +1,11 @@
+<ul class="link">
+  <% theme.links.forEach(link => { %>
+    <li class="link-item">
+      <img src="<%- link[0] %>" alt="">
+      <div class="link-info">
+        <p><%- link[1] %></p>
+        <a href="<%- link[2] %>">- TA的小站</a>
+      </div>
+    </li>
+  <% }) %>
+</ul>

@@ -1,0 +1,27 @@
+<%
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const content = page.content
+  const contentArr = content.split('<hr>')
+  const list = []
+  contentArr.forEach(item => {
+    const result = item.match(/<li>(.*)<\/li>/g)
+    if (result) {
+      list.push({
+        date: result[0].substring(4, result[0].length - 5),
+        week: result[1].substring(4, result[1].length - 5),
+        text: result[2].substring(4, result[2].length - 5),
+      })
+    }
+  })
+%>
+<div class="log">
+  <% list.forEach(item => { %>
+    <div class="log-item">
+      <h2>
+        <span><%- item.date %></span>
+        <span><%- item.week %></span>
+      </h2>
+      <p><%- item.text %></p>
+    </div>
+  <% }) %>
+</div>

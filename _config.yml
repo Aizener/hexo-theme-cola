@@ -15,6 +15,13 @@ menu:
   - [友情链接, '/link', 'icon-youqinglianjie']
   - ['关于自己', '/about', 'icon-guanyuwomen']
 
+links:
+ - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
+ - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
+ - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
+ - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
+ - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
+
 notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
 
 copyright: 浙公网安备 33010002000124号
