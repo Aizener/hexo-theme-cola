@@ -74,7 +74,7 @@
     }
     let html = ''
     const targetPosts = posts.filter(post => post.title.includes(ipt.value))
-    Array(9).fill(targetPosts[0]).forEach(post => {
+    targetPosts.forEach(post => {
       html += `
         <li>
           <div>
