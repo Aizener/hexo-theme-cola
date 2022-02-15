@@ -8,6 +8,8 @@
   <%- partial('_partial/log', { cache: !config.relative_link }) %>
 <% } else if (page.path === 'link/index.html') { %>
   <%- partial('_partial/link', { cache: !config.relative_link }) %>
+<% } else if (page.path === 'about/index.html') { %>
+  <%- partial('_partial/about', { cache: !config.relative_link }) %>
 <% } else { %>
   <%- partial('_partial/article.ejs', { post: page, index: false }) %> 
 <% } %>

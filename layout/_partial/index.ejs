@@ -1,5 +1,6 @@
 <%
   const leftPosts = [], rightPosts = []
+  page.per_page = 2
   page.posts.each(function(post, i) {
     if (i % 2 === 0) {
       leftPosts.push(post)
@@ -8,6 +9,10 @@
     }
   })
 %>
+
+<script>
+  console.log('<%- page.total %>')
+</script>
 
 <div class="index">
   <div class="index-left">
@@ -79,4 +84,11 @@
       </div> -->
     </div>
   </div>
+</div>
+<div class="page">
+  <%- paginator({
+    total: page.total,
+    prev_text: '<',
+    next_text: '>',
+  }) %>
 </div>

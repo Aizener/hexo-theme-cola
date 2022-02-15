@@ -1,7 +1,7 @@
 .index {
   min-height: 100vh;
   display: flex;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
   &-right {
     flex: 1;
   }
@@ -246,5 +246,28 @@
         }
       }
     }
+  }
+}
+
+.page {
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  &-number {
+    color: #1E90FF;
+    padding: 5px 10px;
+    border-radius: 3px;
+    &.current {
+      color: #fff;
+      background-color: #1E90FF;
+    }
+  }
+  .extend {
+    color: #1E90FF;
+    font-weight: bold;
   }
 }
