@@ -1,20 +1,29 @@
 title: 可乐的小站
+# 左侧栏名字
 author_name: Cola.
 
+# 左侧栏标签，只能两个
 tag1: 中二
 tag2: 宅
 
+# 左侧栏Github连接
 github_url: https://github.com/Aizener
 
+# 左侧栏座右铭，分两句
 motto_prev: “花有重开日，人无再少年”
 motto_last: “一个简单普通的男孩”
 
+# 小站部署日期（运营时间）
+public_date: 2022-02-16
+
+# 左侧栏菜单
 menu:
   - [小站首页, '/', 'icon-shouye']
   - [个人日志, '/log', 'icon-rizhi']
   - [友情链接, '/link', 'icon-youqinglianjie']
   - ['关于自己', '/about', 'icon-guanyuwomen']
 
+# 友情连接：头像、名字、链接
 links:
  - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
  - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
@@ -22,8 +31,15 @@ links:
  - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
  - ['https://pic2.zhimg.com/80/v2-da2d9057695e5b3428d8d72a3cd65069_720w.jpg?source=1940ef5c', 'Sakura.', 'http://baidu.com']
 
+# 右侧栏公告
 notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
 
+# 右侧音乐列表：歌名、作者、链接、封面
+musics:
+  - ['安河桥', '宋冬野', 'http://ting6.yymp3.net:82/new25/songdongye/11.mp3', 'https://img2.baidu.com/it/u=1260056724,1076343118&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
+  - ['卡布达', '暂无', 'music/kabuda.mp3', 'https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
+
+# 个人介绍
 likes:
   - 姓名：杨祥
   - 年龄：25
@@ -33,4 +49,5 @@ likes:
   - 职业：Web前端开发
   - 喜欢：打游戏，游泳，下象棋
 
+# 右侧栏网站信息
 copyright: 浙公网安备 33010002000124号

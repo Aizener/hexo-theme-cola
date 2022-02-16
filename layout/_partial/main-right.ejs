@@ -24,32 +24,20 @@
     <p class="main-right--refer"><%- theme.copyright %> </p>
   </div>
 </div>
-
+<%
+  const musics = theme.musics.map(item => ({
+    name: item[0],
+    artist: item[1],
+    url: item[2],
+    cover: url_for(item[3]),
+  }))
+%>
 <script>
+  const musics = JSON.parse(`<%- JSON.stringify(musics) %>`)
   const ap = new APlayer({
     container: document.querySelector('#aplayer'),
-    audio: [{
-      name: 'kabuda',
-      artist: 'kabuda',
-      url: '<%- url_for("music/kabuda.mp3") %>',
-    },{
-      name: 'kabuda',
-      artist: 'kabuda',
-      url: '<%- url_for("music/kabuda.mp3") %>',
-    },{
-      name: 'kabuda',
-      artist: 'kabuda',
-      url: '<%- url_for("music/kabuda.mp3") %>',
-    },{
-      name: 'kabuda',
-      artist: 'kabuda',
-      url: '<%- url_for("music/kabuda.mp3") %>',
-    },{
-      name: 'kabuda',
-      artist: 'kabuda',
-      url: '<%- url_for("music/kabuda.mp3") %>',
-    }]
-  });
+    audio: musics,
+  })
 
   document.querySelector('.backtop').addEventListener('click', () => {
     document.documentElement.scrollTo({
