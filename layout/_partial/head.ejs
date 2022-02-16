@@ -1,7 +1,9 @@
 <head>
   <meta charset="utf-8">
   <%
-    var title = page.title;
+    const baseTitle = config.title
+    const pageTitle = page.title || '小站首页'
+    const title = baseTitle + ' | ' + pageTitle
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,10 +12,14 @@
   <link rel="stylesheet" href="<%- url_for('css/iconfont.css') %>" />
   <link rel="stylesheet" href="<%- url_for('css/nprogress.css') %>" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" />
+  <link rel="shortcut icon" href="<%- url_for('imgs/shortcut-icon.ico') %>" type="image/x-icon">
   
   <script src="<%- url_for('js/prism.js') %>"></script>
   <script src="<%- url_for('js/nprogress.js') %>"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script>
+    document.title = `<%- title %>`
+  </script>
 </head>
