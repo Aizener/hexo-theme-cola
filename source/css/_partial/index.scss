@@ -1,5 +1,5 @@
 .index {
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   padding-bottom: 15px;
   &-right {
@@ -141,26 +141,26 @@
   &-center {
     .index-article {
       &:nth-child(3n) {
-        height: 251px;
+        height: 300px;
       }
       &:nth-child(3n + 1) {
-        height: 293px;
+        height: 270px;
       }
       &:nth-child(3n + 2) {
-        height: 205px;
+        height: 230px;
       }
     }
   }
   &-left {
     .index-article {
       &:nth-child(3n) {
-        height: 192px;
+        height: 260px;
       }
       &:nth-child(3n + 1) {
-        height: 244px;
+        height: 220px;
       }
       &:nth-child(3n + 2) {
-        height: 286px;
+        height: 300px;
       }
     }
   }

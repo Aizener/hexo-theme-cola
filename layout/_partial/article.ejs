@@ -33,20 +33,22 @@
         <h3>目录</h3>
         <%- toc(post.content) %>
       </div>
-      <div class="catelogue catelogue-2">
-        <% if (page.prev) { %>
-          <p>
-            <span>上一篇：</span>
-            <a href="/<%- page.prev.path -%>"><%- page.prev.title -%></a>
-          </p>
-        <% } %> 
-        <% if (page.next) { %>
-          <p>
-            <span>下一篇</span>
-            <a href="/<%- page.next.path -%>"><%- page.next.title -%></a>
-          </p>
-        <% } %>
-      </div>
+      <% if (page.prev || page.next) { %>
+        <div class="catelogue catelogue-2">
+          <% if (page.prev) { %>
+            <p>
+              <span>上一篇：</span>
+              <a href="/<%- page.prev.path -%>"><%- page.prev.title -%></a>
+            </p>
+          <% } %> 
+          <% if (page.next) { %>
+            <p>
+              <span>下一篇</span>
+              <a href="/<%- page.next.path -%>"><%- page.next.title -%></a>
+            </p>
+          <% } %>
+        </div>
+      <% } %>
     </div>
   </div>
 </div>
