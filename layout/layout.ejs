@@ -6,7 +6,7 @@
     <%- partial('_partial/header', null, { cache: !config.relative_link }) %> 
     <section id="main" class="main">
       <div class="main-left-wrapper"><%- partial('_partial/main-left', null, { cache: !config.relative_link }) %></div>
-      <div class="main-container"><%- body %></div>
+      <div id="main-container" class="main-container"><%- body %></div>
       <div class="main-right-wrapper"><%- partial('_partial/main-right', null, { cache: !config.relative_link }) %></div>
     </section>
     <%- partial('_partial/footer', null, { cache: !config.relative_link }) %> 
@@ -26,6 +26,11 @@
       let ratio = scrollTop / (pageHeight - clientHeight)
       ratio = ratio > .99 ? .99999 : ratio
       NProgress.set(ratio)
+    })
+    // 对所有链接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
+    $(document).on('pjax:complete', function() {
+      NProgress.set(0)
     })
   </script>
 </body>

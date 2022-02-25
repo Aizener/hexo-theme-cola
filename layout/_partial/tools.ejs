@@ -1,0 +1,29 @@
+<%
+  const tools = []
+  theme.tools.forEach(tool => {
+    tools.push({
+      cover: tool[0],
+      title: tool[1],
+      intro: tool[2],
+      link: tool[3],
+    })
+  })
+%>
+
+<div class="tools">
+  <h2 class="tools-title">我的自制工具列表...</h2>
+  <ul class="tools-list">
+    <% tools.forEach(tool => { %>
+      <li>
+        <img class="tool-cover" src="<%= url_for(tool.cover) %>" alt="">
+        <div class="tool-info">
+          <div>
+            <p class="tool-title"><%= tool.title %></p>
+            <p class="tool-intro"><%= tool.intro %></p>
+          </div>
+          <a class="tool-link" href="<%= url_for(tool.link) %>" target="_blank">前往使用>></a>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+</div>
