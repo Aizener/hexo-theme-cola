@@ -456,3 +456,47 @@ $mainRightWidth: 250px;
     transition: all .3s;
   }
 }
+
+
+.code-toolbar {
+  /*定义滚动条高宽及背景
+  高宽分别对应横竖滚动条的尺寸*/
+  pre {
+    border-radius: 10px;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 10px;
+      background-color:#F5F5F5;
+    }
+    /*定义滚动条轨道
+    内阴影+圆角*/
+    &::-webkit-scrollbar-track {
+      background-color:#F5F5F5;
+    }
+    /*定义滑块
+    内阴影+圆角*/
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(69, 83, 100);
+      &:active {
+        background-color: rgb(81, 95, 116);
+      }
+    }
+  }
+  .toolbar-item {
+    &:first-child {
+      span {
+        color: #fff !important;  
+        border-radius: 3px !important;
+        padding: 3px 7px !important;
+        background-color: #999;
+      }
+    }
+  }
+  .copy-to-clipboard-button {
+    color: #fff !important;  
+    margin: 5px 10px;
+    padding: 3px 7px !important;
+    border-radius: 3px !important;
+    cursor: pointer;
+  }
+}

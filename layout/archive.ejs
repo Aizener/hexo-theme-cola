@@ -15,10 +15,6 @@
         months[month].push({ title: post.title, path: post.path, date: _date[2] })
     })
 %>
-<script>
-    const target = `<%- (JSON.stringify(archives)) %>`
-    console.log(target)
-</script>
 <%if (page.path === 'archives/index.html') { %>
     <div class="archive">
         <h1 class="archive-title">我の博客归档记录</h1>
