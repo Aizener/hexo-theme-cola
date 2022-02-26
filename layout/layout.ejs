@@ -13,24 +13,29 @@
   </div>
 
   <script>
-    const doc = document.documentElement
-    const pageHeight = doc.offsetHeight
-    const clientHeight = doc.clientHeight
-    NProgress.configure({
-      parent: 'body',
-      showSpinner: false,
-      minimum: 0,
-    })
-    document.addEventListener('scroll', () => {
-      const scrollTop = doc.scrollTop
-      let ratio = scrollTop / (pageHeight - clientHeight)
-      ratio = ratio > .99 ? .99999 : ratio
-      NProgress.set(ratio)
-    })
+    function initScroll () {
+      const doc = document.documentElement
+      const pageHeight = doc.offsetHeight
+      const clientHeight = doc.clientHeight
+      NProgress.configure({
+        parent: 'body',
+        showSpinner: false,
+        minimum: 0,
+      })
+      document.addEventListener('scroll', () => {
+        const scrollTop = doc.scrollTop
+        let ratio = scrollTop / (pageHeight - clientHeight)
+        ratio = ratio > .99 ? .99999 : ratio
+        NProgress.set(ratio)
+      })
+    }
+    window.onload = function () {
+      initScroll()
+    }
     // 对所有链接跳转事件绑定pjax容器container
     $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
     $(document).on('pjax:complete', function() {
-      NProgress.set(0)
+      initScroll()
     })
   </script>
 </body>

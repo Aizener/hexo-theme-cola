@@ -1,0 +1,126 @@
+@media screen and (max-width: 1199px) {
+  .header {
+    padding-top: 30px !important;
+    .header-wrapper {
+      width: 100%;
+    }
+    .header-left {
+      width: 100%;
+      .header-search {
+        width: 90%;
+        margin: 0 auto;
+        &--layer {
+          width: 90%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    .header-right {
+      display: none;
+    }
+  }
+
+  .main {
+    width: 100% !important;
+    padding: 0 15px;
+    flex-direction: column;
+    &-left {
+      order: 1;
+      width: 100% !important;
+      position: relative !important;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      &--block {
+        &:nth-child(1) {
+          width: 62%;
+        }
+        &:nth-child(2) {
+          margin-top: 0;
+        }
+        &:nth-child(3) {
+          width: 100%;
+        }
+      }
+      &-wrapper {
+        width: 100% !important;
+      }
+    }
+    &-right {
+      order: 2;
+      width: 100% !important;
+      position: relative !important;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      .backtop {
+        display: none !important;
+      }
+      &-wrapper {
+        width: 100% !important;
+      }
+    }
+    &-container {
+      order: 3;
+      width: 100% !important;
+      padding: 0 !important;
+      margin-top: 15px;
+      .index {
+        flex-direction: column;
+      }
+      .index-right {
+        display: none;
+      }
+      .index-center {
+        margin: 15px 0;
+      }
+      .index-article {
+        height: 260px !important;
+      }
+    }
+
+
+    .article {
+      order: 2;
+      margin-top: 15px;
+      width: 100% !important;
+      &-container {
+        flex-direction: column;
+      }
+      &-catelogue {
+        order: 1;
+        width: 100%;
+        &--wrapper {
+          width: 100%;
+          padding-left: 0 !important;
+          position: relative !important;
+        }
+        .catelogue-2 {
+          width: 100%;
+          display: flex;
+        }
+      }
+    }
+
+    .link {
+      display: flex;
+    }
+
+    .about {
+      &-info {
+        flex-direction: column;
+      }
+      &-detail {
+        margin-top: 15px;
+      }
+    }
+
+    .tools {
+      margin-bottom: 15px;
+      li {
+        width: 100% !important;
+      }
+    }
+  }
+}
