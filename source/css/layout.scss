@@ -463,6 +463,11 @@ $mainRightWidth: 250px;
   高宽分别对应横竖滚动条的尺寸*/
   pre {
     border-radius: 10px;
+    code {
+      *:first-child {
+        margin-left: -12px;
+      }
+    }
     &::-webkit-scrollbar {
       width: 5px;
       height: 10px;
@@ -488,7 +493,7 @@ $mainRightWidth: 250px;
         color: #fff !important;  
         border-radius: 3px !important;
         padding: 3px 7px !important;
-        background-color: #999;
+        background-color: #666 !important;
       }
     }
   }

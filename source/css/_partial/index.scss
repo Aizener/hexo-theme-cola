@@ -75,6 +75,8 @@
 
       .archive-list {
         padding: 10px;
+        display: flex;
+        flex-direction: column;
         & > li {
           display: flex;
           justify-content: space-between;
