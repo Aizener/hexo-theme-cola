@@ -70,8 +70,8 @@
 <% if (theme.comments.enable) { %>
 <script src="<%- url_for('js/prism.js') %>"></script>
 <script>
-  const config = JSON.parse('<%- JSON.stringify(theme.comments) %>')
-  console.log(config)
+  // var定义，避免pjax重新进来造成的重复声明错误
+  var config = JSON.parse('<%- JSON.stringify(theme.comments) %>')
   new Valine({
     el: '#vcomments',
     appId: config.appId,

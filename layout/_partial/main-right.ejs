@@ -71,12 +71,13 @@
       behavior: 'smooth'
     })
   })
-  document.querySelector('.turn-comment').addEventListener('click', () => {
+  const dom = document.querySelector('.turn-comment')
+  dom && dom.addEventListener('click', () => {
     const commentDom = document.querySelector('.comments-intro')
     if (!commentDom) return
-    const rect = commentDom.getBoundingClientRect()
+    const top = commentDom.offsetTop, height = commentDom.offsetHeight
     document.documentElement.scrollTo({
-      top: rect.top - 2 * rect.height,
+      top: top - 2 * height,
       behavior: 'smooth'
     })
   })
