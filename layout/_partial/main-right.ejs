@@ -11,9 +11,15 @@
 
   <div id="aplayer" class="main-right--music"></div>
 
-  <div class="backtop">
-    <i class="iconfont icon-huidaodingbu"></i>
-    <span>回到顶部</span>
+  <div class="operate-items">
+    <div class="operate-item backtop">
+      <i class="iconfont icon-huidaodingbu"></i>
+      <span>回到顶部</span>
+    </div>
+    <div class="operate-item turn-comment hidden">
+      <i class="iconfont icon-pinglun"></i>
+      <span>查看评论</span>
+    </div>
   </div>
 
   <div class="main-right--site">
@@ -33,15 +39,40 @@
   }))
 %>
 <script>
+  function setOperateItem () {
+    const reg = /\d{4}\/\d{2}\/\d{2}\/.+/
+    const path = location.pathname
+    const commentDom = document.querySelector('.turn-comment')
+    if (reg.test(path)) {
+      commentDom.classList.remove('hidden')
+    } else {
+      commentDom.classList.add('hidden')
+    }
+  }
+
+  setOperateItem()
   const musics = JSON.parse(`<%- JSON.stringify(musics) %>`)
   const ap = new APlayer({
     container: document.querySelector('#aplayer'),
     audio: musics,
   })
 
+  $(document).on('pjax:complete', function() {
+    setOperateItem()
+  })
+
   document.querySelector('.backtop').addEventListener('click', () => {
     document.documentElement.scrollTo({
       top: 0,
+      behavior: 'smooth'
+    })
+  })
+  document.querySelector('.turn-comment').addEventListener('click', () => {
+    const commentDom = document.querySelector('.comments-intro')
+    if (!commentDom) return
+    const rect = commentDom.getBoundingClientRect()
+    document.documentElement.scrollTo({
+      top: rect.top - 2 * rect.height,
       behavior: 'smooth'
     })
   })

@@ -412,8 +412,10 @@ $mainRightWidth: 250px;
     color: #fff;
   }
 }
-
-.backtop {
+.operate-items {
+  display: flex;
+}
+.operate-item {
   background-color: #fff;
   padding: 10px;
   display: inline-flex;
@@ -427,15 +429,25 @@ $mainRightWidth: 250px;
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  margin-right: 8px;
+  transition: opacity .5s;
+  &:last-child {
+    margin-right: 0;
+  }
   &::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: skyblue;
     transition: all .3s;
     border-radius: 50%;
     transform: scale(0);
+  }
+  &.backtop::after {
+    background-color: skyblue;
+  }
+  &.turn-comment::after {
+    background-color: orange;
   }
   &:hover {
     color: #fff;
@@ -504,4 +516,36 @@ $mainRightWidth: 250px;
     border-radius: 3px !important;
     cursor: pointer;
   }
+}
+
+.vcomments {
+  padding-top: 15px;
+}
+
+.comments-intro {
+  padding: 15px;
+  margin-top: 15px;
+  background-color: #eee;
+  text-align: center;
+  h2 {
+    color: #1E90FF;
+    font-size: 18px;
+  }
+  p {
+    color: #666;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+}
+
+.read-nums {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hidden {
+  opacity: 0;
+  position: relative;
+  z-index: -1;
+  pointer-events: none;
 }

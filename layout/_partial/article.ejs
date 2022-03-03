@@ -26,6 +26,18 @@
     <article class="article-content">
       <%- post.content %>
     </article>
+    <div class="read-nums">
+      <!-- id 将作为查询条件 -->
+      <span id="<%- post.path %>" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">浏览量</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
+    <div class="comments-intro">
+      <h2>评论区</h2>
+      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
+    </div>
+    <div id="vcomments" class="vcomments"></div>
   </div>
   <div class="article-catelogue">
     <div class="article-catelogue--wrapper">
@@ -52,7 +64,20 @@
     </div>
   </div>
 </div>
+
 <script src="<%- url_for('js/prism.js') %>"></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz',
+    appKey: 'qOqoiUHhH1TGtLRUYURkLRQX',
+    placeholder: '请留下你宝贵的意见吧~',
+    meta: ['nick'],
+    visitor: true,
+    enableQQ: true,
+    path: '<%- post.path %>'
+  })
+</script>
 
 <script>
   $(document).on('pjax:complete', function() {
