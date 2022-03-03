@@ -52,3 +52,14 @@ tools:
 
 # 右侧栏网站信息
 copyright: 浙公网安备 33010002000124号
+
+# 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
+comments:
+  enable: false
+  appId: ''
+  appKey: ''
+  placeholder: '请留下你宝贵的意见吧~'
+  meta: ['nick']
+  recordIP: true
+  visitor: true
+  enableQQ: true

@@ -16,10 +16,12 @@
       <i class="iconfont icon-huidaodingbu"></i>
       <span>回到顶部</span>
     </div>
+    <% if (theme.comments.enable) { %>
     <div class="operate-item turn-comment hidden">
       <i class="iconfont icon-pinglun"></i>
       <span>查看评论</span>
     </div>
+    <% } %>
   </div>
 
   <div class="main-right--site">
@@ -43,10 +45,12 @@
     const reg = /\d{4}\/\d{2}\/\d{2}\/.+/
     const path = location.pathname
     const commentDom = document.querySelector('.turn-comment')
-    if (reg.test(path)) {
-      commentDom.classList.remove('hidden')
-    } else {
-      commentDom.classList.add('hidden')
+    if (commentDom) {
+      if (reg.test(path)) {
+        commentDom.classList.remove('hidden')
+      } else {
+        commentDom.classList.add('hidden')
+      }
     }
   }
 

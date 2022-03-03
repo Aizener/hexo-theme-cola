@@ -26,6 +26,7 @@
     <article class="article-content">
       <%- post.content %>
     </article>
+    <% if (theme.comments.enable) { %>
     <div class="read-nums">
       <!-- id 将作为查询条件 -->
       <span id="<%- post.path %>" class="leancloud_visitors" data-flag-title="Your Article Title">
@@ -38,6 +39,7 @@
       <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
     </div>
     <div id="vcomments" class="vcomments"></div>
+    <% } %>
   </div>
   <div class="article-catelogue">
     <div class="article-catelogue--wrapper">
@@ -65,19 +67,24 @@
   </div>
 </div>
 
+<% if (theme.comments.enable) { %>
 <script src="<%- url_for('js/prism.js') %>"></script>
 <script>
+  const config = JSON.parse('<%- JSON.stringify(theme.comments) %>')
+  console.log(config)
   new Valine({
     el: '#vcomments',
-    appId: 'Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz',
-    appKey: 'qOqoiUHhH1TGtLRUYURkLRQX',
-    placeholder: '请留下你宝贵的意见吧~',
-    meta: ['nick'],
-    visitor: true,
-    enableQQ: true,
+    appId: config.appId,
+    appKey: config.appKey,
+    placeholder: config.placeholder,
+    meta: config.meta,
+    recordIP: config.recordIP,
+    visitor: config.visitor,
+    enableQQ: config.enableQQ,
     path: '<%- post.path %>'
   })
 </script>
+<% } %>
 
 <script>
   $(document).on('pjax:complete', function() {
