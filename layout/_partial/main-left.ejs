@@ -1,12 +1,30 @@
 <%
   const posts = site.posts
-  const archives = []
+  const archives = [], activetiesDate = []
   site.posts.each(function(post) {
+    activetiesDate.push(post.updated)
     const _date = date(post.date, 'YYYYMM')
     if (!archives.includes(_date)) {
       archives.push(_date)
     }
   })
+
+  const activityDate = Math.max(...activetiesDate)
+  const activity = Math.floor((Date.now() - activityDate) / 1000 / 60 / 60 / 24)
+  let activityText = 'aa'
+  if (activity === 0) {
+    activityText = '今天'
+  } else if (activity === 1) {
+    activityText = '昨天'
+  } else if (activity < 7) {
+    activityText = activity + '天前'
+  } else if (activity >= 7 && activity < 30) {
+    activityText = activity % 7 + '周前'
+  } else if (activity >= 30 && activity < 365) {
+    activityText = activity % 30 + '月前'
+  } else if (activity >= 365) {
+    activityText = activity % 365 + '年前'
+  }
 
   const menu = theme.menu.map(m => ({
     title: m[0],
@@ -18,6 +36,10 @@
   const publicDate = new Date(theme.public_date).getTime()
   const runningDate = Math.ceil((currDate - publicDate) / 1000 / 60 / 60 / 24)
 %>
+<script>
+  const date = '<%- activityDate %>'
+  console.log()
+</script>
 <div class="main-left">
   <div class="main-left--block">
     <div class="main-left--info">
@@ -89,7 +111,7 @@
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>昨天</span>
+        <span><%- activityText %></span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
