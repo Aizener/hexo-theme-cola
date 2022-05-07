@@ -63,3 +63,6 @@ comments:
   recordIP: true
   visitor: true
   enableQQ: true
+
+# 版本号
+version: 1.0.0
