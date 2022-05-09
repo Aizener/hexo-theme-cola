@@ -53,6 +53,9 @@ tools:
 # 右侧栏网站信息
 copyright: 蜀ICP备2022005384号
 
+# 水波纹效果
+water: false
+
 # 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
 comments:
   enable: false
