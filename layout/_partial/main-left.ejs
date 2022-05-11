@@ -11,7 +11,7 @@
 
   const activityDate = Math.max(...activetiesDate)
   const activity = Math.floor((Date.now() - activityDate) / 1000 / 60 / 60 / 24)
-  let activityText = 'aa'
+  let activityText = ''
   if (activity === 0) {
     activityText = '今天'
   } else if (activity === 1) {
@@ -19,11 +19,11 @@
   } else if (activity < 7) {
     activityText = activity + '天前'
   } else if (activity >= 7 && activity < 30) {
-    activityText = activity % 7 + '周前'
+    activityText = Math.floor(activity / 7) + '周前'
   } else if (activity >= 30 && activity < 365) {
-    activityText = activity % 30 + '月前'
+    activityText = Math.floor(activity / 30) + '月前'
   } else if (activity >= 365) {
-    activityText = activity % 365 + '年前'
+    activityText = Math.floor(activity / 365) + '年前'
   }
 
   const menu = theme.menu.map(m => ({
@@ -36,10 +36,6 @@
   const publicDate = new Date(theme.public_date).getTime()
   const runningDate = Math.ceil((currDate - publicDate) / 1000 / 60 / 60 / 24)
 %>
-<script>
-  const date = '<%- activityDate %>'
-  console.log()
-</script>
 <div class="main-left">
   <div class="main-left--block">
     <div class="main-left--info">
