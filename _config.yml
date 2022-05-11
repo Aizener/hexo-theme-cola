@@ -35,13 +35,14 @@ notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客
 musics:
   - ['安河桥', '宋冬野', 'http://ting6.yymp3.net:82/new25/songdongye/11.mp3', 'https://img2.baidu.com/it/u=1260056724,1076343118&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
   - ['卡布达', '暂无', '/music/kabuda.mp3', 'https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
+  - ['八连杀', '苏三', '/music/八连杀.mp3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo0SWQx6YrNA8lElaG4OOKLkNkNzLO1PflKg&usqp=CAU']
 
 # 个人介绍
 likes:
   - 姓名：杨祥
   - 年龄：25
   - 性别：♂
-  - 家乡：四川省雅安市芦山县太平镇
+  - 家乡：四川省雅安市某小镇
   - 现居住地：四川省成都市武侯区
   - 职业：Web前端开发
   - 喜欢：打游戏，游泳，下象棋
@@ -53,11 +54,13 @@ tools:
 # 右侧栏网站信息
 copyright: 浙公网安备 33010002000124号
 
+water: true
+
 # 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
 comments:
-  enable: false
-  appId: ''
-  appKey: ''
+  enable: true
+  appId: 'Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz'
+  appKey: 'qOqoiUHhH1TGtLRUYURkLRQX'
   placeholder: '请留下你宝贵的意见吧~'
   meta: ['nick']
   recordIP: true

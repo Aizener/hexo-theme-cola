@@ -2,6 +2,7 @@ li { list-style: none; }
 a { text-decoration: none; color: #333; }
 * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
 html {
+  // filter: grayscale(1);
   font-family: -apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial;
 }
 body {
