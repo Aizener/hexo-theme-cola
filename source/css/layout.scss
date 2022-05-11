@@ -12,6 +12,12 @@ $mainRightWidth: 250px;
   background-size: cover;
   background-attachment: fixed;
   padding-top: $headerHeight;
+  .main-left,
+  .main-container,
+  .main-right {
+    position: relative;
+    z-index: 3;
+  }
 }
 .header {
   width: 100%;
@@ -177,6 +183,7 @@ $mainRightWidth: 250px;
   &-container {
     width: calc(#{$mainWidth} - #{$mainLeftWidth} - #{$mainRightWidth});
     padding: 0 15px;
+    align-self: flex-start;
   }
   &-left {
     width: $mainLeftWidth;

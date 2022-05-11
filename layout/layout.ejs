@@ -39,5 +39,8 @@
       initScroll()
     })
   </script>
+  <% if (theme.water) { %>
+  <script src="<%- url_for('js/water.js') %>"></script>
+  <% } %>
 </body>
 </html>

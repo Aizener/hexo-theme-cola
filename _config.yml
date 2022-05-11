@@ -52,7 +52,10 @@ tools:
   - ['https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30e94204580a4dbd83a64d4f91a9a6e5~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?', 'PNG图片压缩器', '这是一款无损压缩PNG图片的在线工具，可以童工上传或拖动来批量压缩图片并打包下载', 'http://1.14.43.39:5000/']
 
 # 右侧栏网站信息
-copyright: 浙公网安备 33010002000124号
+copyright: 蜀ICP备2022005384号
+
+# 水波纹效果
+water: false
 
 water: true
 
@@ -66,3 +69,6 @@ comments:
   recordIP: true
   visitor: true
   enableQQ: true
+
+# 版本号
+version: 1.0.0
