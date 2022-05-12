@@ -79,7 +79,7 @@ function WaterRipple (element, settings) {
   // 保存图像的所有像素信息
   function saveImageData () {
     // 在canvas中绘制图形
-    ctx.drawImage(image, 0, 0);
+    ctx.drawImage(image, 0, 0, width, height);
     // 图像的ImageData对象
     texture = ctx.getImageData(0, 0, width, height);
     ripple = ctx.getImageData(0, 0, width, height);
