@@ -55,8 +55,6 @@ tools:
 copyright: 蜀ICP备2022005384号
 
 # 水波纹效果
-water: false
-
 water: true
 
 # 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
