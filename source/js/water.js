@@ -265,11 +265,11 @@ function init (id) {
 
 
   //on mousemove
-  document.getElementById(id).addEventListener('mousemove', function (e) {
-    var mouseX = e.layerX;
-    var mouseY = e.layerY;
-    waterRippleEffect.disturb(mouseX, mouseY);
-  });
+  // document.getElementById(id).addEventListener('mousemove', function (e) {
+  //   var mouseX = e.layerX;
+  //   var mouseY = e.layerY;
+  //   waterRippleEffect.disturb(mouseX, mouseY);
+  // });
 
   document.onkeydown = function (e) {
     var event = e || window.event || arguments.callee.caller.arguments[0];
