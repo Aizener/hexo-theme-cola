@@ -6,10 +6,13 @@ $mainRightWidth = 250px;
 
 .container {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
   background: url('/imgs/bg-cover.jpeg') repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+  @media screen and (max-width: 1200px) {
+    background-size: cover;
+  }
   background-attachment: fixed;
   padding-top: $headerHeight;
   .main-left,

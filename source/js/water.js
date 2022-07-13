@@ -54,8 +54,7 @@ function WaterRipple (element, settings) {
 
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = settings.bgColor;
-  ctx.fillRect(0, 0, width, height);
-
+  // ctx.fillRect(0, 0, width, height);
   window.requestAnimationFrame = (function () {
     return window.requestAnimationFrame ||
       window.webkitRequestAnimationFrame ||
@@ -79,7 +78,7 @@ function WaterRipple (element, settings) {
   // 保存图像的所有像素信息
   function saveImageData () {
     // 在canvas中绘制图形
-    ctx.drawImage(image, 0, 0, width, height);
+    ctx.drawImage(image, 0, 0, 1920, 1080, 0, 0, window.innerWidth, window.innerHeight);
     // 图像的ImageData对象
     texture = ctx.getImageData(0, 0, width, height);
     ripple = ctx.getImageData(0, 0, width, height);
@@ -278,4 +277,9 @@ function init (id) {
     }
   }
 }
-init('container');
+
+if (['/', '/log/', '/link/', '/about/', '/tools/'].includes(location.pathname) && window.innerWidth > 1200) {
+  setTimeout(() => {
+    init('container') // 水波纹动画
+  }, 1500)
+}

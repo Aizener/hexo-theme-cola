@@ -93,7 +93,7 @@
       <span>G</span>
     </p>
   </div>
-  <div id="container" class="container w-100 vh-100" style="display: none; opacity: 0; transition: opacity 1s;">
+  <div id="container" class="container w-100 vh-100" style="display: none;">
     <%- partial('_partial/header', null, { cache: !config.relative_link }) %> 
     <section id="main" class="main">
       <div class="main-left-wrapper"><%- partial('_partial/main-left', null, { cache: !config.relative_link }) %></div>
@@ -120,14 +120,14 @@
       })
     }
 
-    $('#container').hide()
 
     window.onload = function () {
-      initScroll()
       setTimeout(() => {
         $('#load').slideUp()
         $('#container').slideToggle()
-        $('#container').css('opacity', 1)
+        setTimeout(() => {
+          initScroll()
+        }, 500)
       }, 500)
     }
     
