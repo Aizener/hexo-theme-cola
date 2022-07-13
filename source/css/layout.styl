@@ -1,8 +1,8 @@
-$mainWidth: 1200px;
-$headerHeight: 100px;
-$footerHeight: 0px;
-$mainLeftWidth: 200px;
-$mainRightWidth: 250px;
+$mainWidth = 1200px;
+$headerHeight = 100px;
+$footerHeight = 0px;
+$mainLeftWidth = 200px;
+$mainRightWidth = 250px;
 
 .container {
   width: 100%;
@@ -15,7 +15,7 @@ $mainRightWidth: 250px;
   .main-left,
   .main-container,
   .main-right {
-    position: relative;
+    // position: relative;
     z-index: 3;
   }
 }
@@ -181,7 +181,7 @@ $mainRightWidth: 250px;
   padding-top: 15px;;
   display: flex;
   &-container {
-    width: calc(#{$mainWidth} - #{$mainLeftWidth} - #{$mainRightWidth});
+    width: 'calc(%s - %s - %s)' % ($mainWidth $mainLeftWidth $mainRightWidth);
     padding: 0 15px;
     align-self: flex-start;
   }
