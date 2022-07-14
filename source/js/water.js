@@ -281,5 +281,5 @@ function init (id) {
 if (['/', '/log/', '/link/', '/about/', '/tools/'].includes(location.pathname) && window.innerWidth > 1200) {
   setTimeout(() => {
     init('container') // 水波纹动画
-  }, 1500)
+  }, 2e3)
 }
