@@ -127,6 +127,9 @@
         $('#container').slideToggle()
         setTimeout(() => {
           initScroll()
+          if (['/', '/log/', '/link/', '/about/', '/tools/'].includes(location.pathname) && window.innerWidth > 1200) {
+            init('container') // 水波纹动画
+          }
         }, 500)
       }, 500)
     }
