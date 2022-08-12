@@ -26,7 +26,7 @@ menu:
 
 # 友情连接：头像、名字、链接
 links:
- - ['https://www.baidu.com/img/flexible/logo/pc/result.png', 'Baidu.', 'http://baidu.com']
+ - ['https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg', 'Hexo.', 'https://hexo.io/zh-cn/']
 
 # 右侧栏公告
 notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
@@ -54,8 +54,8 @@ tools:
 # 右侧栏网站信息
 copyright: 蜀ICP备2022005384号
 
-# 水波纹效果
-water: true
+# 水波纹效果（不建议打开，机器性能不好的话明细有卡顿）
+water: false
 
 # 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
 comments:
@@ -69,4 +69,4 @@ comments:
   enableQQ: true
 
 # 版本号
-version: 1.0.0
+version: 1.0.1

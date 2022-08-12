@@ -77,6 +77,16 @@
     80% { transform: translateY(-10%) rotate(-20deg) scale(.8);}
     100% { transform: translateY(0) rotate(0) scale(1); }
   }
+
+  .progress {
+    position: fixed;
+    left: 0; top: 0;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .1s;
+    z-index: 9999;
+  }
 </style>
 <body>
   <div id="load" class="load">
@@ -101,22 +111,20 @@
       <div class="main-right-wrapper"><%- partial('_partial/main-right', null, { cache: !config.relative_link }) %></div>
     </section>
   </div>
+  <div id="progress" class="progress"></div>
 
   <script>
     function initScroll () {
-      const doc = document.documentElement
-      const pageHeight = doc.offsetHeight
-      const clientHeight = doc.clientHeight
-      NProgress.configure({
-        parent: 'body',
-        showSpinner: false,
-        minimum: 0,
-      })
       document.addEventListener('scroll', () => {
+        const doc = document.documentElement
         const scrollTop = doc.scrollTop
-        let ratio = scrollTop / (pageHeight - clientHeight)
-        ratio = ratio > .99 ? .99999 : ratio
-        NProgress.set(ratio)
+        const pageHeight = doc.offsetHeight
+        const clientHeight = doc.clientHeight
+        const ratio = scrollTop / (pageHeight - clientHeight)
+        const progress = document.querySelector('#progress')
+        const avatarImg = document.querySelector('.main-left--avatar')
+        progress.style.width = (100 * ratio) + '%'
+        avatarImg.style.transform = `rotate(${360 * ratio}deg)`
       })
     }
 
@@ -136,9 +144,9 @@
     
     // 对所有链接跳转事件绑定pjax容器container
     $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
-    $(document).on('pjax:complete', function() {
-      initScroll()
-    })
+    // $(document).on('pjax:complete', function() {
+    //   initScroll()
+    // })
   </script>
   <% if (theme.water) { %>
   <script src="<%- url_for('js/water.js') %>"></script>
