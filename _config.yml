@@ -68,5 +68,8 @@ comments:
   visitor: true
   enableQQ: true
 
+# 是否开启静态资源的CDN加载方式
+static_load_type: jsdelivr
+
 # 版本号
 version: 1.0.1

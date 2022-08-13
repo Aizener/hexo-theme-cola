@@ -144,9 +144,13 @@
     
     // 对所有链接跳转事件绑定pjax容器container
     $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
-    // $(document).on('pjax:complete', function() {
-    //   initScroll()
-    // })
+
+    $(document).on('pjax:beforeReplace', function() {
+      $('.main-container').hide()
+    })
+    $(document).on('pjax:complete', function() {
+      $('.main-container').fadeIn()
+    })
   </script>
   <% if (theme.water) { %>
   <script src="<%- url_for('js/water.js') %>"></script>
