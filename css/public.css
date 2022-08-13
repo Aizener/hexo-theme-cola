@@ -663,6 +663,11 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
 .log-item:first-child {
   margin-top: 0;
 }
+.log-item a {
+  margin: 0 5px;
+  color: #1d9bf0;
+  text-decoration: underline;
+}
 .log-item h2 {
   color: #1e90ff;
   font-size: 16px;
