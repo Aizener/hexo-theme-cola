@@ -87,6 +87,14 @@
     transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .1s;
     z-index: 9999;
   }
+
+  .to-up {
+    animation: toUp .5s 1;
+  }
+  @keyframes toUp {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0) ; opacity: 1; }
+  }
 </style>
 <body>
   <div id="load" class="load">
@@ -136,7 +144,7 @@
         setTimeout(() => {
           initScroll()
           if (['/', '/log/', '/link/', '/about/', '/tools/'].includes(location.pathname) && window.innerWidth > 1200) {
-            init('container') // 水波纹动画
+            init && init('container') // 水波纹动画
           }
         }, 500)
       }, 500)
@@ -145,11 +153,16 @@
     // 对所有链接跳转事件绑定pjax容器container
     $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
 
-    $(document).on('pjax:beforeReplace', function() {
-      $('.main-container').hide()
+    $(document).on('pjax:start', function() {
+      // $('.main-container').hide()
     })
     $(document).on('pjax:complete', function() {
-      $('.main-container').fadeIn()
+      $('.main-container').addClass('to-up').on('animationend', function() {
+        $(this).removeClass('to-up')
+      })
+    })
+    $(document).on('pjax:popstate', function() {
+      // $('.main-container').fadeIn()
     })
   </script>
   <% if (theme.water) { %>
