@@ -1,4 +1,4 @@
-<%
+<!-- <%
   const content = page.content
   const contentArr = content.split('<hr>')
   const list = []
@@ -12,15 +12,56 @@
       })
     }
   })
+%> -->
+<%
+  const weekText = ['天', '一', '二', '三', '四', '五', '六']
+  let logPages = site.pages.filter(item => {
+    const dirs = item.source.split('/')
+    return dirs[0] === 'log' && dirs[1] !== 'index.md'
+  })
+  logPages = logPages.data.sort((a, b) => {
+    return b.date.unix() - a.date.unix()
+  })
+  logPages.forEach(item => {
+    const day = new Date(item.date).getDay()
+    item.week = '星期' + weekText[day]
+  })
 %>
+<style>
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+内阴影+圆角*/
+pre::-webkit-scrollbar-track {
+  background-color:#F5F5F5;
+}
+/*定义滑块
+内阴影+圆角*/
+pre::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 83, 100);
+}
+
+pre:active {
+  background-color: rgb(81, 95, 116);
+}
+</style>
 <div class="log">
-  <% list.forEach(item => { %>
+  <% logPages.forEach(item => { %>
     <div class="log-item">
-      <h2>
-        <span><%- item.date %></span>
+      <h2 class="log-title">
+        <span><%- date(item.date, 'YYYY-MM-DD HH:mm:ss') %></span>
         <span><%- item.week %></span>
       </h2>
-      <p><%- item.text %></p>
+      <h1 class="log-main-title"><a href="<%- url_for(item.path) %>"><%- item.title %></a></h1>
+      <div class="log-wrapper <%- item.content.length > theme.log_text_num && 'more' %>" style="max-height: <%- theme.log_text_num %>px;">
+        <article class="article-content"><%- item.content %></article>
+        <% if (item.content.length > theme.log_text_num) { %>
+          <a href="<%- url_for(item.path) %>" class="more-title">阅读更多</a> 
+        <% } %>
+      </div>
     </div>
   <% }) %>
 </div>

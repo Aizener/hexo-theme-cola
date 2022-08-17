@@ -26,6 +26,7 @@ pre:active {
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
+          <% if (post.categories) { %>
           <div class="article-info--categories">
             <span>分类：</span>
             <%- list_categories(post.categories, {
@@ -36,10 +37,13 @@ pre:active {
               }
             }) %>
           </div>
+          <% } %>
+          <% if (post.tags) { %>
           <div class="article-info--tags">
             <span>标签：</span>
             <%- post.tags ? list_tags(post.tags, { style: false, show_count: false, separator: '' }) : '' %>
           </div>
+          <% } %>
           <p class="article-info--date">日期：<%- date(post.date, 'YYYY-MM-DD HH:mm:ss') %></p>
         </div>
         <img src="<%- url_for(post.cover || '/imgs/default-cover.webp') %>" alt="" class="article-cover">
@@ -89,8 +93,8 @@ pre:active {
   </div>
 </div>
 
-<% if (theme.comments.enable) { %>
 <script src="<%- url_for('js/prism.js') %>"></script>
+<% if (theme.comments.enable) { %>
 <script>
   // var定义，避免pjax重新进来造成的重复声明错误
   var config = JSON.parse('<%- JSON.stringify(theme.comments) %>')

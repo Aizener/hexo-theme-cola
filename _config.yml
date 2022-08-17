@@ -69,7 +69,10 @@ comments:
   enableQQ: true
 
 # 是否开启静态资源的CDN加载方式
-static_load_type: jsdelivr
+static_load_type: local
+
+# 日志篇幅超过1000字后隐藏（最大高度为1000px)，1000可为任意数值
+log_text_num: 1000
 
 # 版本号
 version: 1.0.2

@@ -46,7 +46,7 @@
     const path = location.pathname
     const commentDom = document.querySelector('.turn-comment')
     if (commentDom) {
-      if (reg.test(path)) {
+      if (reg.test(path) || path.match(/\/log\/.+/)) {
         commentDom.classList.remove('hidden')
       } else {
         commentDom.classList.add('hidden')
