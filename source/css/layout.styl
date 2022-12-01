@@ -188,6 +188,10 @@ $mainRightWidth = 250px;
     width: 'calc(%s - %s - %s)' % ($mainWidth $mainLeftWidth $mainRightWidth);
     padding: 0 15px;
     align-self: flex-start;
+    transition: width .3s;
+    &.is-article {
+      width: 'calc(%s - %s)' % ($mainWidth $mainLeftWidth);
+    }
   }
   &-left {
     width: $mainLeftWidth;
@@ -363,8 +367,16 @@ $mainRightWidth = 250px;
   &-right {
     width: $mainRightWidth;
     position: fixed;
+    transition: transform .3s;
+    &.is-article {
+      transform: scaleX(0);
+      overflow: hidden;
+    }
     &-wrapper {
       width: $mainRightWidth;
+      &.is-article {
+        width: 0;
+      }
     }
     &--board {
       background-color: #fff;

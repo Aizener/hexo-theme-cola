@@ -115,9 +115,9 @@ pre:active {
 <script>
   $(document).on('pjax:complete', function() {
     const tocs = document.querySelector('.toc')
-    const as = tocs ? tocs.querySelectorAll('a') : []
-    as.forEach(a => {
-      a.addEventListener('click', e => {
+    const links = tocs ? tocs.querySelectorAll('a') : []
+    links.forEach(link => {
+      link.addEventListener('click', e => {
         const href = decodeURIComponent(a.href)
         href.search(/#(.*)/)
         const id = RegExp.$1

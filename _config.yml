@@ -54,8 +54,6 @@ tools:
 # 右侧栏网站信息
 copyright: 蜀ICP备2022005384号
 
-# 水波纹效果（不建议打开，机器性能不好的话明细有卡顿）
-water: false
 
 # 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
 comments:

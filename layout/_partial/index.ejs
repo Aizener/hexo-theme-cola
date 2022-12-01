@@ -18,19 +18,23 @@
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
-            <p>
-              <%- list_categories(post.categories, {
-                show_count: false,
-                style: null,
-                class: 'post-category',
-                transform(str) {
-                  return titlecase(str);
-                }
-              }) %>
-            </p>
-            <p>
-              <%- list_tags(post.tags, { class: '', order: -1, style: null, show_count: false, separator: '<span> ◆ </span>' }) %>
-            </p>
+            <% if (post.categories.length > 0) { %>
+              <p>
+                <%- list_categories(post.categories, {
+                  show_count: false,
+                  style: null,
+                  class: 'post-category',
+                  transform(str) {
+                    return titlecase(str);
+                  }
+                }) %>
+              </p>
+            <% } %>
+            <% if (post.tags.length > 0 ) { %>
+              <p>
+                <%- list_tags(post.tags, { class: '', order: -1, style: null, show_count: false, separator: '<span> ◆ </span>' }) %>
+              </p>
+            <% } %>
           </div>
           <div class="bg"></div>
         </div>
@@ -44,18 +48,22 @@
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
-            <p>
-              <%- list_categories(post.categories, {
-                show_count: false,
-                style: null,
-                transform(str) {
-                  return titlecase(str)
-                }
-              }) %>
-            </p>
-            <p>
-              <%- list_tags(post.tags, { class: '', order: -1, style: null, show_count: false, separator: '<span> ◆ </span>' }) %>
-            </p>
+            <% if (post.categories.length > 0) { %>
+              <p>
+                <%- list_categories(post.categories, {
+                  show_count: false,
+                  style: null,
+                  transform(str) {
+                    return titlecase(str)
+                  }
+                }) %>
+              </p>
+            <% } %>
+            <% if (post.tags.length > 0 ) { %>
+              <p>
+                <%- list_tags(post.tags, { class: '', order: -1, style: null, show_count: false, separator: '<span> ◆ </span>' }) %>
+              </p>
+            <% } %>
           </div>
           <div class="bg"></div>
         </div>

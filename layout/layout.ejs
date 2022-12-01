@@ -136,16 +136,21 @@
       })
     }
 
+    const checkAndSetArticlePageLayout = () => {
+      if (/^\/\d{4}\/\d{2}\/\d{2}\/.*/.test(location.pathname)) {
+        $('.main-container, .main-right, .main-right-wrapper').addClass('is-article')
+      } else {
+        $('.main-container, .main-right, .main-right-wrapper').removeClass('is-article')
+      }
+    }
 
     window.onload = function () {
+      checkAndSetArticlePageLayout()
       setTimeout(() => {
         $('#load').slideUp()
         $('#container').slideToggle()
         setTimeout(() => {
           initScroll()
-          if (['/', '/log/', '/link/', '/about/', '/tools/'].includes(location.pathname) && window.innerWidth > 1200) {
-            init && init('container') // 水波纹动画
-          }
         }, 500)
       }, 500)
     }
@@ -160,13 +165,12 @@
       $('.main-container').addClass('to-up').on('animationend', function() {
         $(this).removeClass('to-up')
       })
+      checkAndSetArticlePageLayout()
     })
     $(document).on('pjax:popstate', function() {
+      checkAndSetArticlePageLayout()
       // $('.main-container').fadeIn()
     })
   </script>
-  <% if (theme.water) { %>
-  <script src="<%- url_for('js/water.js') %>"></script>
-  <% } %>
 </body>
 </html>
