@@ -1,4 +1,4 @@
-title: 可乐的小站
+title: 我的技术与生活——可乐的小站
 # 左侧栏名字
 author_name: Cola.
 
@@ -52,7 +52,7 @@ tools:
   - ['https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30e94204580a4dbd83a64d4f91a9a6e5~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?', 'PNG图片压缩器', '这是一款无损压缩PNG图片的在线工具，可以童工上传或拖动来批量压缩图片并打包下载', 'http://1.14.43.39:5000/']
 
 # 右侧栏网站信息
-copyright: 蜀ICP备2022005384号
+copyright: 蜀ICP备2022005384号-1
 
 
 # 是否开启文章评论 Valine:https://valine.js.org/configuration.htm
@@ -68,6 +68,9 @@ comments:
 
 # 是否开启静态资源的CDN加载方式
 static_load_type: local
+
+# 纪念模式 none: 不设置 all：全部置灰 index: 首页置灰
+gray: none
 
 # 日志篇幅超过1000字后隐藏（最大高度为1000px)，1000可为任意数值
 log_text_num: 1000
