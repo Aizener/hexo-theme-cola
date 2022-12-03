@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>我的技术与生活——如何使用hexo-theme-cola主题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/css/public.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/css/layout.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/css/iconfont.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/css/APlayer.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/js/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/js/jquery.pjax.min.js"></script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script>
+    document.title = `我的技术与生活——如何使用hexo-theme-cola主题`
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<style>
+  .load {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(37, 35, 40);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+  }
+  .load-circle {
+    width: 80px;
+    height: 80px;
+    border: 8px solid orange;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 1s linear infinite;
+    filter: drop-shadow(0 0 3px orange);
+  }
+  .load-circle-inner {
+    width: 40px;
+    height: 40px;
+    border: 8px solid orange;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: rotate-reverse .5s linear infinite;
+  }
+  .load-text {
+    margin-top: 20px;
+    font-size: 24px;
+    color: orange;
+    display: flex;
+  }
+  .load-text span {
+    margin: 0 5px;
+    text-shadow: 5px 5px 5px orange;
+    animation: move 1s linear infinite;
+  }
+  .load-text span:nth-child(1) {
+    animation-delay: -0.6s;
+  }
+  .load-text span:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  .load-text span:nth-child(3) {
+    animation-delay: -0.4s;
+  }
+  .load-text span:nth-child(4) {
+    animation-delay: -0.3s;
+  }
+  .load-text span:nth-child(5) {
+    animation-delay: -0.2s;
+  }
+  .load-text span:nth-child(6) {
+    animation-delay: -0.1s;
+  }
+  @keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes rotate-reverse {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(-360deg); }
+  }
+  @keyframes move {
+    0% { transform: translateY(0%) rotate(0) scale(1); }
+    20% { transform: translateY(20%) rotate(10deg) scale(1.2); }
+    80% { transform: translateY(-10%) rotate(-20deg) scale(.8);}
+    100% { transform: translateY(0) rotate(0) scale(1); }
+  }
+
+  .progress {
+    position: fixed;
+    left: 0; top: 0;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .1s;
+    z-index: 9999;
+  }
+
+  .to-up {
+    animation: toUp .5s 1;
+  }
+  .gray {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: none;
+    pointer-events: none;
+    background-color: #000;
+    mix-blend-mode: color;
+  }
+  @keyframes toUp {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0) ; opacity: 1; }
+  }
+</style>
+<body>
+  <div id="load" class="load">
+    <div class="load-circle">
+      <div class="load-circle-inner"></div>
+    </div>
+    <p class="load-text">
+      <span>L</span>
+      <span>O</span>
+      <span>A</span>
+      <span>D</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+    </p>
+  </div>
+  <div id="container" class="container w-100 vh-100" style="display: none;">
+    <header class="header">
+  <div class="header-wrapper">
+    <div class="header-left">
+      <div class="header-search">
+        <input id="search-input" type="text" class="header-search--input" placeholder="请输入要检索的文章标题" />
+        <span id="search-btn" class="header-search--icon"><i class="iconfont icon-sousuo"></i></span>
+      </div>
+      <div id="search-layer" class="header-search--layer hidden">
+        <p class="title">
+          <span>以下是搜索内容：</span>
+          <span id="close-layer-btn">关闭</span>
+        </p>
+        <ul>
+        </ul>
+      </div>
+    </div>
+    <div class="header-right">
+      <ul class="header-menu">
+        <li>
+          <a href="/">
+            <i class="header-menu--icon iconfont icon-shouye"></i>
+            <span class="header-menu--span">首页</span>
+          </a>
+        </li>
+        <li>
+          <a href="/log">
+            <i class="header-menu--icon iconfont icon-rizhi"></i>
+            <span class="header-menu--span">日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="/link">
+            <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
+            <span class="header-menu--span">友情链接</span>
+          </a>
+        </li>
+        <li>
+          <a href="/about">
+            <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
+            <span class="header-menu--span">关于我</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  const ipt = document.querySelector('#search-input')
+  const btn = document.querySelector('#search-btn')
+  const layer = document.querySelector('#search-layer')
+  const posts = JSON.parse(`[{"title":"关于H5新特性拖放API讲解","path":"2022/03/24/关于H5新特性拖放API讲解/"},{"title":"分享基于H5实现扫码功能","cover":"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c64349191a94bf19bcaeb14a62d328c~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?","path":"2022/08/14/分享基于H5实现扫码功能/"},{"title":"如何使用hexo-theme-cola主题","path":"2022/02/17/如何使用hexo-theme-cola主题/"},{"title":"基于Vue对主题修改的思考与实现","cover":"https://s3.bmp.ovh/imgs/2022/04/01/7d831a8e4b739ac2.png","path":"2022/04/01/基于Vue对主题修改的思考与实现/"},{"title":"在Vue项目中使用ESLint来检查代码","cover":"https://s3.bmp.ovh/imgs/2022/04/01/647275ce2adecce7.png","path":"2022/03/02/在Vue项目中使用ESLint来检查代码/"},{"title":"趣味NodeJS之笔趣阁的小蜘蛛","cover":"https://s3.bmp.ovh/imgs/2022/04/01/05822287376d328d.png","path":"2022/03/08/趣味NodeJS之笔趣阁的小蜘蛛/"}]`)
+  ipt.addEventListener('keyup', e => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  })
+  btn.addEventListener('click', () => {
+    handleSearch()
+  })
+
+  document.querySelector('#close-layer-btn').addEventListener('click', () => {
+    layer.classList.toggle('hidden')
+  })
+
+  function handleSearch() {
+    if (ipt.value.trim() === '') {
+      return
+    }
+    let html = ''
+    const targetPosts = posts.filter(post => post.title.includes(ipt.value))
+    targetPosts.forEach(post => {
+      html += `
+        <li>
+          <div>
+            <a href="/${post.path}">${post.title.replace(new RegExp(ipt.value), `<span>${ipt.value}</span>`)}</a>
+          </div>
+          <img src="${post.cover || '/imgs/default-cover.webp' }" />
+        </li>
+      `
+    })
+    if (html.trim () === '') {
+      html += '<p class="empty">没有搜索到内容</p>'
+    }
+    layer.querySelector('ul').innerHTML = html
+    layer.classList.remove('hidden')
+  }
+</script> 
+    <section id="main" class="main">
+      <div class="main-left-wrapper">
+<div class="main-left">
+  <div class="main-left--block">
+    <div class="main-left--info">
+      <img src="/imgs/avatar.jpg"" class="main-left--avatar" />
+      <div class="main-left--intro">
+        <p class="main-left--name">Cola.</p>
+        <div class="main-left--tags">
+          <span class="main-left--tag">中二</span>
+          <span class="main-left--tag">宅</span>
+        </div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="main-left--motto">
+        <p>“花有重开日，人无再少年”</p>
+        <p>“一个简单普通的男孩”</p>
+      </div>
+      <div class="main-left--github">
+        <span class="line"></span>
+        <a target="_blank" rel="noopener" href="https://github.com/Aizener"><i class="logo iconfont icon-github-fill"></i></a>
+        <span class="line"></span>
+      </div>
+      <div class="main-left--statics">
+        <a href="/categories">
+          <div>
+            <span>2</span>
+            <span>分类</span>
+          </div>
+        </a>
+        <a href="/tags">
+          <div>
+            <span>7</span>
+            <span>标签</span>
+          </div>
+        </a>
+        <a href="/archives">
+          <div>
+            <span>4 </span>
+            <span>归档</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-left--block">
+    <ul class="main-left--menu">
+      
+        <li>
+          <a href="/">
+            <span class="header-menu--span">小站首页</span>
+            <i class="header-menu--icon iconfont icon-shouye"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/log">
+            <span class="header-menu--span">个人日志</span>
+            <i class="header-menu--icon iconfont icon-rizhi"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/link">
+            <span class="header-menu--span">友情链接</span>
+            <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <span class="header-menu--span">关于自己</span>
+            <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tools">
+            <span class="header-menu--span">我的工具</span>
+            <i class="header-menu--icon iconfont icon-gongju"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="main-left--block">
+    <div class="main-left--site">
+      <h5 class="main-left--title">
+        <span>站点信息</span>
+        <i class="iconfont icon-zhandian"></i>
+      </h5>
+      <p class="main-left--subtitle">
+        <span>文章数目：</span>
+        <span>6 篇</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>最近动态：</span>
+        <span>2月前</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>上线时间：</span>
+        <span>291天</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>当前版本：</span>
+        <span>v1.0.2</span>
+      </p>
+    </div>
+  </div>
+</div></div>
+      <div id="main-container" class="main-container">
+
+
+  <style>
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+内阴影+圆角*/
+pre::-webkit-scrollbar-track {
+  background-color:#F5F5F5;
+}
+/*定义滑块
+内阴影+圆角*/
+pre::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 83, 100);
+}
+
+pre:active {
+  background-color: rgb(81, 95, 116);
+}
+</style>
+
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title">如何使用hexo-theme-cola主题</h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
+            <a class="category-link" href="/categories/NodeJS/">NodeJS</a>
+          </div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
+            <a class="tag-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+          </div>
+          
+          <p class="article-info--date">日期：2022-02-17 22:07:46</p>
+        </div>
+        <img src="/imgs/default-cover.webp" alt="" class="article-cover">
+      </div>
+    </div>
+    <article class="article-content">
+      <h2 id="如何使用hexo-theme-cola主题"><a href="#如何使用hexo-theme-cola主题" class="headerlink" title="如何使用hexo-theme-cola主题"></a>如何使用hexo-theme-cola主题</h2><blockquote>
+<p><code>hexo-theme-cola</code>是基于<code>Hexo</code>的博客主题，其风格类型主要是：简洁。</p>
+<p>没有花哨的界面，没有复杂的功能。主要就是为了使用者能更聚集的编写博客。</p>
+</blockquote>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>首先通过<code>Hexo</code>初始化项目：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>克隆完成后，进入项目，并且克隆主题到<code>themes</code>下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone git@github.com:Aizener&#x2F;hexo-theme-cola.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>完成以上步骤后，就可以开始配置根目录下的<code>_config.yml</code>文件，一共需要配置两个地方：</p>
+<ul>
+<li><p>关闭<code>highlight</code>配置项，打开<code>prismjs</code>配置：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">highlight:
+  enable: false    # true改为false
+  line_number: true
+  auto_detect: false
+  tab_replace: &#39;&#39;
+  wrap: true
+  hljs: false
+prismjs:
+  enable: true    # false改为true
+  preprocess: true
+  line_number: true
+  tab_replace: &#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>把<code>theme</code>配置改为：<code>hexo-theme-cola</code>主题：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">theme: hexo-theme-cola<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>完成以上步骤后，我们再继续安装所需要的包依赖。</p>
+<p>安装完成后，执行以下命令重新生成主题，并开启服务。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo clean &amp; hexo g &amp; hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><p>安装好主题后，还需要新建几个页面，分别执行以下命令：</p>
+<ol>
+<li><p>新建日志页面：<code>hexo new page log</code></p>
+</li>
+<li><p>新建友链页面：<code>hexo new page link</code></p>
+</li>
+<li><p>新建个人页面：<code>hexo new page about</code></p>
+</li>
+<li><p>新建分类页面：<code>hexo new page categories</code></p>
+</li>
+<li><p>新建标签页面：<code>hexo new page tags</code></p>
+</li>
+<li><p>新建工具页面：<code>hexo new page tools</code></p>
+</li>
+</ol>
+<p>新建完成页面之后，就可以到主题的<code>_config.yml</code>配置文件配置对应的信息了。<strong>（页面根据是否需要来新建）</strong></p>
+<p>日志页面需要通过命令新建一个文件：</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo new page --path log&#x2F;logName &quot;logName&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行该命令后，在<code>log</code>目录下会新增一个<code>title</code>为<code>logName</code>的文件（改成自己想要的标题即可），然后像写文章一样即可编写日志。</p>
+<p>像上面这样的格式编写即可，日志页面就会以从上到下的顺序显示了。</p>
+<h3 id="杂项修改"><a href="#杂项修改" class="headerlink" title="杂项修改"></a>杂项修改</h3><p>可以看到，网站上还有些地方的配置没有介绍，配置这些也非常简单。进入主题目录找到<code>_config.yml</code>文件，里面有已经配置好的项，照着替换即可。</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">title: 可乐的小站
+# 左侧栏名字
+author_name: Cola.
+
+# 左侧栏标签，只能两个
+tag1: 中二
+tag2: 宅
+
+# 左侧栏Github连接
+github_url: https:&#x2F;&#x2F;github.com&#x2F;Aizener
+
+# 左侧栏座右铭，分两句
+motto_prev: “花有重开日，人无再少年”
+motto_last: “一个简单普通的男孩”
+
+# 小站部署日期（运营时间）
+public_date: 2022-02-16
+
+# 左侧栏菜单
+menu:
+  - [小站首页, &#39;&#x2F;&#39;, &#39;icon-shouye&#39;]
+  - [个人日志, &#39;&#x2F;log&#39;, &#39;icon-rizhi&#39;]
+  - [友情链接, &#39;&#x2F;link&#39;, &#39;icon-youqinglianjie&#39;]
+  - [&#39;关于自己&#39;, &#39;&#x2F;about&#39;, &#39;icon-guanyuwomen&#39;]
+
+# 友情连接：头像、名字、链接
+links:
+ - [&#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;img&#x2F;flexible&#x2F;logo&#x2F;pc&#x2F;result.png&#39;, &#39;Baidu.&#39;, &#39;http:&#x2F;&#x2F;baidu.com&#39;]
+
+# 右侧栏公告
+notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！
+
+# 右侧音乐列表：歌名、作者、链接、封面
+musics:
+  - [&#39;安河桥&#39;, &#39;宋冬野&#39;, &#39;http:&#x2F;&#x2F;ting6.yymp3.net:82&#x2F;new25&#x2F;songdongye&#x2F;11.mp3&#39;, &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;1260056724,1076343118&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;]
+  - [&#39;卡布达&#39;, &#39;暂无&#39;, &#39;&#x2F;music&#x2F;kabuda.mp3&#39;, &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;705831265,2862720033&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;]
+
+# 个人介绍
+likes:
+  - 姓名：杨祥
+  - 年龄：25
+  - 性别：♂
+  - 家乡：四川省雅安市芦山县太平镇
+  - 现居住地：四川省成都市武侯区
+  - 职业：Web前端开发
+  - 喜欢：打游戏，游泳，下象棋
+
+# 是否开启水波纹
+water: true
+
+# 右侧栏网站信息
+copyright: 蜀ICP备2022005384号 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><em><strong>到此，小站就可以启航远行了(<em>^▽^</em>)。</strong></em></p>
+
+    </article>
+    
+    <div class="read-nums">
+      <!-- id 将作为查询条件 -->
+      <span id="2022/02/17/如何使用hexo-theme-cola主题/" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">浏览量</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
+    <div class="comments-intro">
+      <h2>评论区</h2>
+      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
+    </div>
+    <div id="vcomments" class="vcomments"></div>
+    
+  </div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-theme-cola%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">如何使用hexo-theme-cola主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">1.1.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">新建页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9%E4%BF%AE%E6%94%B9"><span class="toc-number">1.3.</span> <span class="toc-text">杂项修改</span></a></li></ol></li></ol>
+      </div>
+      
+        <div class="catelogue catelogue-2">
+          
+            <p>
+              <span>上一篇：</span>
+              <a href="/2022/03/02/在Vue项目中使用ESLint来检查代码/">在Vue项目中使用ESLint来检查代码</a>
+            </p>
+           
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Aizener/hexo-theme-cola@build/js/prism.js"></script>
+
+<script>
+  // var定义，避免pjax重新进来造成的重复声明错误
+  var config = JSON.parse('{"enable":true,"appId":"Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz","appKey":"qOqoiUHhH1TGtLRUYURkLRQX","placeholder":"请留下你宝贵的意见吧~","meta":["nick"],"recordIP":true,"visitor":true,"enableQQ":true}')
+  new Valine({
+    el: '#vcomments',
+    appId: config.appId,
+    appKey: config.appKey,
+    placeholder: config.placeholder,
+    meta: config.meta,
+    recordIP: config.recordIP,
+    visitor: config.visitor,
+    enableQQ: config.enableQQ,
+    path: '2022/02/17/如何使用hexo-theme-cola主题/'
+  })
+</script>
+
+
+<script>
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const links = tocs ? tocs.querySelectorAll('a') : []
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = decodeURIComponent(a.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
+
+</div>
+      <div class="main-right-wrapper"><div class="main-right">
+  <div class="main-right--board">
+    <div class="main-right--title">
+      <h5>公告栏</h5>
+      <i class="iconfont icon-gonggao"></i>
+    </div>
+    <div class="main-right--content">
+      Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！ 
+    </div>
+  </div>
+
+  <div id="aplayer" class="main-right--music"></div>
+
+  <div class="operate-items">
+    <div class="operate-item backtop">
+      <i class="iconfont icon-huidaodingbu"></i>
+      <span>回到顶部</span>
+    </div>
+    
+    <div class="operate-item turn-comment hidden">
+      <i class="iconfont icon-pinglun"></i>
+      <span>查看评论</span>
+    </div>
+    
+  </div>
+
+  <div class="main-right--site">
+    <div class="main-right--power">
+      <p>Power By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a>.</p>
+      <p>Theme：<a target="_blank" rel="noopener" href="https://github.com/Aizener/hexo-theme-cola">Cola.</a></p>
+    </div>
+    <p class="main-right--refer"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">蜀ICP备2022005384号-1</a> </p>
+  </div>
+</div>
+
+<script>
+  function setOperateItem () {
+    const reg = /\d{4}\/\d{2}\/\d{2}\/.+/
+    const path = location.pathname
+    const commentDom = document.querySelector('.turn-comment')
+    if (commentDom) {
+      if (reg.test(path) || path.match(/\/log\/.+/)) {
+        commentDom.classList.remove('hidden')
+      } else {
+        commentDom.classList.add('hidden')
+      }
+    }
+  }
+
+  setOperateItem()
+  const musics = JSON.parse(`[{"name":"安河桥","artist":"宋冬野","url":"http://ting6.yymp3.net:82/new25/songdongye/11.mp3","cover":"https://img2.baidu.com/it/u=1260056724,1076343118&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"},{"name":"卡布达","artist":"暂无","url":"/music/kabuda.mp3","cover":"https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"},{"name":"八连杀","artist":"苏三","url":"/music/八连杀.mp3","cover":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo0SWQx6YrNA8lElaG4OOKLkNkNzLO1PflKg&usqp=CAU"}]`)
+  const ap = new APlayer({
+    container: document.querySelector('#aplayer'),
+    audio: musics,
+  })
+
+  $(document).on('pjax:complete', function() {
+    setOperateItem()
+  })
+
+  document.querySelector('.backtop').addEventListener('click', () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  })
+  const dom = document.querySelector('.turn-comment')
+  dom && dom.addEventListener('click', () => {
+    const commentDom = document.querySelector('.comments-intro')
+    if (!commentDom) return
+    const top = commentDom.offsetTop, height = commentDom.offsetHeight
+    document.documentElement.scrollTo({
+      top: top - 2 * height,
+      behavior: 'smooth'
+    })
+  })
+</script></div>
+    </section>
+  </div>
+  <div id="progress" class="progress"></div>
+  <div id="gray" class="gray"></div>
+
+  <script>
+    function initScroll () {
+      document.addEventListener('scroll', () => {
+        const doc = document.documentElement
+        const scrollTop = doc.scrollTop
+        const pageHeight = doc.offsetHeight
+        const clientHeight = doc.clientHeight
+        const ratio = scrollTop / (pageHeight - clientHeight)
+        const progress = document.querySelector('#progress')
+        const avatarImg = document.querySelector('.main-left--avatar')
+        progress.style.width = (100 * ratio) + '%'
+        avatarImg.style.transform = `rotate(${360 * ratio}deg)`
+      })
+    }
+
+    const checkAndSetArticlePageLayout = () => {
+      if (/^\/\d{4}\/\d{2}\/\d{2}\/.*/.test(location.pathname)) {
+        $('.main-container, .main-right, .main-right-wrapper').addClass('is-article')
+      } else {
+        $('.main-container, .main-right, .main-right-wrapper').removeClass('is-article')
+      }
+    }
+
+    const gray = "none"
+    const setGrayStyle = () => {
+      if (gray === 'none') {
+        return
+      } else if (gray === 'index') {
+        location.pathname === '/' ? $('#gray').show() : $('#gray').hide()
+      } else if (gray === 'all') {
+        $('#gray').show()
+      }
+    }
+    setGrayStyle()
+
+
+    window.onload = function () {
+      checkAndSetArticlePageLayout()
+      setTimeout(() => {
+        $('#load').slideUp()
+        $('#container').slideToggle()
+        setTimeout(() => {
+          initScroll()
+        }, 500)
+      }, 500)
+    }
+    
+    // 对所有链接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
+
+    $(document).on('pjax:start', function() {
+      // $('.main-container').hide()
+    })
+    $(document).on('pjax:complete', function() {
+      $('.main-container').addClass('to-up').on('animationend', function() {
+        $(this).removeClass('to-up')
+      })
+      setGrayStyle()
+      checkAndSetArticlePageLayout()
+    })
+    $(document).on('pjax:popstate', function() {
+      checkAndSetArticlePageLayout()
+      // $('.main-container').fadeIn()
+    })
+  </script>
+</body>
+</html>
