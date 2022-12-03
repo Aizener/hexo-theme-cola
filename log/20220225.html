@@ -283,35 +283,35 @@
     <ul class="main-left--menu">
       
         <li>
-          <a href="/">
+          <a href="../index.html">
             <span class="header-menu--span">小站首页</span>
             <i class="header-menu--icon iconfont icon-shouye"></i>
           </a>
         </li>
       
         <li>
-          <a href="/log">
+          <a href="../log">
             <span class="header-menu--span">个人日志</span>
             <i class="header-menu--icon iconfont icon-rizhi"></i>
           </a>
         </li>
       
         <li>
-          <a href="/link">
+          <a href="../link">
             <span class="header-menu--span">友情链接</span>
             <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
           </a>
         </li>
       
         <li>
-          <a href="/about">
+          <a href="../about">
             <span class="header-menu--span">关于自己</span>
             <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
           </a>
         </li>
       
         <li>
-          <a href="/tools">
+          <a href="../tools">
             <span class="header-menu--span">我的工具</span>
             <i class="header-menu--icon iconfont icon-gongju"></i>
           </a>
@@ -589,9 +589,11 @@ pre:active {
     $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
 
     $(document).on('pjax:start', function() {
+      console.log('start')
       // $('.main-container').hide()
     })
     $(document).on('pjax:complete', function() {
+      console.log('complete')
       $('.main-container').addClass('to-up').on('animationend', function() {
         $(this).removeClass('to-up')
       })
@@ -599,6 +601,7 @@ pre:active {
       checkAndSetArticlePageLayout()
     })
     $(document).on('pjax:popstate', function() {
+      console.log('popstate')
       checkAndSetArticlePageLayout()
       // $('.main-container').fadeIn()
     })

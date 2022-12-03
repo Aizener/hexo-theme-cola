@@ -257,7 +257,7 @@
         <span class="line"></span>
       </div>
       <div class="main-left--statics">
-        <a href="/categories">
+        <a href="categories">
           <div>
             <span>2</span>
             <span>分类</span>
@@ -283,7 +283,7 @@
     <ul class="main-left--menu">
       
         <li>
-          <a href="/">
+          <a href="index.html">
             <span class="header-menu--span">小站首页</span>
             <i class="header-menu--icon iconfont icon-shouye"></i>
           </a>
@@ -618,9 +618,11 @@
     $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
 
     $(document).on('pjax:start', function() {
+      console.log('start')
       // $('.main-container').hide()
     })
     $(document).on('pjax:complete', function() {
+      console.log('complete')
       $('.main-container').addClass('to-up').on('animationend', function() {
         $(this).removeClass('to-up')
       })
@@ -628,6 +630,7 @@
       checkAndSetArticlePageLayout()
     })
     $(document).on('pjax:popstate', function() {
+      console.log('popstate')
       checkAndSetArticlePageLayout()
       // $('.main-container').fadeIn()
     })
