@@ -193,7 +193,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"关于H5新特性拖放API讲解","path":"2022/03/24/关于H5新特性拖放API讲解/"},{"title":"分享基于H5实现扫码功能","cover":"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c64349191a94bf19bcaeb14a62d328c~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?","path":"2022/08/14/分享基于H5实现扫码功能/"},{"title":"在Vue项目中使用ESLint来检查代码","cover":"https://s3.bmp.ovh/imgs/2022/04/01/647275ce2adecce7.png","path":"2022/03/02/在Vue项目中使用ESLint来检查代码/"},{"title":"基于Vue对主题修改的思考与实现","cover":"https://s3.bmp.ovh/imgs/2022/04/01/7d831a8e4b739ac2.png","path":"2022/04/01/基于Vue对主题修改的思考与实现/"},{"title":"如何使用hexo-theme-cola主题","path":"2022/02/17/如何使用hexo-theme-cola主题/"},{"title":"趣味NodeJS之笔趣阁的小蜘蛛","cover":"https://s3.bmp.ovh/imgs/2022/04/01/05822287376d328d.png","path":"2022/03/08/趣味NodeJS之笔趣阁的小蜘蛛/"}]`)
+  const posts = JSON.parse(`[{"title":"关于H5新特性拖放API讲解","path":"2022/03/24/关于H5新特性拖放API讲解/"},{"title":"在Vue项目中使用ESLint来检查代码","cover":"https://s3.bmp.ovh/imgs/2022/04/01/647275ce2adecce7.png","path":"2022/03/02/在Vue项目中使用ESLint来检查代码/"},{"title":"分享基于H5实现扫码功能","cover":"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c64349191a94bf19bcaeb14a62d328c~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?","path":"2022/08/14/分享基于H5实现扫码功能/"},{"title":"基于Vue对主题修改的思考与实现","cover":"https://s3.bmp.ovh/imgs/2022/04/01/7d831a8e4b739ac2.png","path":"2022/04/01/基于Vue对主题修改的思考与实现/"},{"title":"如何使用hexo-theme-cola主题","path":"2022/02/17/如何使用hexo-theme-cola主题/"},{"title":"趣味NodeJS之笔趣阁的小蜘蛛","cover":"https://s3.bmp.ovh/imgs/2022/04/01/05822287376d328d.png","path":"2022/03/08/趣味NodeJS之笔趣阁的小蜘蛛/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -256,19 +256,19 @@
         <span class="line"></span>
       </div>
       <div class="main-left--statics">
-        <a href="https://aizener.github.io/categories">
+        <a href="/categories">
           <div>
             <span>2</span>
             <span>分类</span>
           </div>
         </a>
-        <a href="https://aizener.github.io/tags">
+        <a href="/tags">
           <div>
             <span>7</span>
             <span>标签</span>
           </div>
         </a>
-        <a href="https://aizener.github.io/archives">
+        <a href="/archives">
           <div>
             <span>4 </span>
             <span>归档</span>
@@ -282,35 +282,35 @@
     <ul class="main-left--menu">
       
         <li>
-          <a href="https://aizener.github.io/">
+          <a href="/">
             <span class="header-menu--span">小站首页</span>
             <i class="header-menu--icon iconfont icon-shouye"></i>
           </a>
         </li>
       
         <li>
-          <a href="https://aizener.github.io/log">
+          <a href="/log">
             <span class="header-menu--span">个人日志</span>
             <i class="header-menu--icon iconfont icon-rizhi"></i>
           </a>
         </li>
       
         <li>
-          <a href="https://aizener.github.io/link">
+          <a href="/link">
             <span class="header-menu--span">友情链接</span>
             <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
           </a>
         </li>
       
         <li>
-          <a href="https://aizener.github.io/about">
+          <a href="/about">
             <span class="header-menu--span">关于自己</span>
             <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
           </a>
         </li>
       
         <li>
-          <a href="https://aizener.github.io/tools">
+          <a href="/tools">
             <span class="header-menu--span">我的工具</span>
             <i class="header-menu--icon iconfont icon-gongju"></i>
           </a>
@@ -335,7 +335,7 @@
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>359天</span>
+        <span>360天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -672,13 +672,13 @@ html5QrCode<span class="token punctuation">.</span><span class="token function">
     
     let status = 0
     // 对所有链接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
+    $(document).pjax('a[target!=_blank]', '#main-container', {
+      container: '#main-container',
+      fragment: '#main-container',
+      timeout: 8000
+    })
 
     $(document).on('pjax:start', function() {
-      if (status === 0) {
-        
-      }
-      // $('.main-container').hide()
     })
     $(document).on('pjax:complete', function() {
       status = 0
