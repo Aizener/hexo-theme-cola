@@ -93,7 +93,7 @@ pre:active {
   </div>
 </div>
 
-<script src="<%- url_for('js/prism.js') %>"></script>
+<script src="<%- url_for('http://cdn.yangxiang.cc/prism.js') %>"></script>
 <% if (theme.comments.enable) { %>
 <script>
   // var定义，避免pjax重新进来造成的重复声明错误
@@ -118,7 +118,7 @@ pre:active {
     const links = tocs ? tocs.querySelectorAll('a') : []
     links.forEach(link => {
       link.addEventListener('click', e => {
-        const href = decodeURIComponent(a.href)
+        const href = decodeURIComponent(e.href)
         href.search(/#(.*)/)
         const id = RegExp.$1
         const target = document.querySelector('#' + id)

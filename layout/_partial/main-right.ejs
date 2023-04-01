@@ -44,10 +44,21 @@
   function setOperateItem () {
     const reg = /\d{4}\/\d{2}\/\d{2}\/.+/
     const path = location.pathname
+    const operateDom = document.querySelector('.main-right .operate-items')
     const commentDom = document.querySelector('.turn-comment')
+    const cateloguDom = document.querySelector('.article-catelogue > .article-catelogue--wrapper');
+
     if (commentDom) {
       if (reg.test(path) || path.match(/\/log\/.+/)) {
         commentDom.classList.remove('hidden')
+        const newDom = operateDom.cloneNode(true);
+        const _backtopDom = newDom.querySelector('.backtop');
+        const _commentDom = newDom.querySelector('.turn-comment');
+        console.log(_commentDom)
+        _backtopDom.addEventListener('click', () => backTopEvent());
+        _commentDom.addEventListener('click', () => commentDomEvent());
+
+        cateloguDom.appendChild(newDom);
       } else {
         commentDom.classList.add('hidden')
       }
@@ -66,13 +77,21 @@
   })
 
   document.querySelector('.backtop').addEventListener('click', () => {
+    backTopEvent();
+  })
+  const dom = document.querySelector('.turn-comment')
+  dom && dom.addEventListener('click', () => {
+    commentDomEvent();
+  })
+
+  function backTopEvent() {
     document.documentElement.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
-  })
-  const dom = document.querySelector('.turn-comment')
-  dom && dom.addEventListener('click', () => {
+  }
+
+  function commentDomEvent() {
     const commentDom = document.querySelector('.comments-intro')
     if (!commentDom) return
     const top = commentDom.offsetTop, height = commentDom.offsetHeight
@@ -80,5 +99,5 @@
       top: top - 2 * height,
       behavior: 'smooth'
     })
-  })
+  }
 </script>

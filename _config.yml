@@ -34,8 +34,8 @@ notice: Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客
 # 右侧音乐列表：歌名、作者、链接、封面
 musics:
   - ['安河桥', '宋冬野', 'http://ting6.yymp3.net:82/new25/songdongye/11.mp3', 'https://img2.baidu.com/it/u=1260056724,1076343118&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
-  - ['卡布达', '暂无', '/music/kabuda.mp3', 'https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
-  - ['八连杀', '苏三', '/music/八连杀.mp3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo0SWQx6YrNA8lElaG4OOKLkNkNzLO1PflKg&usqp=CAU']
+  - ['卡布达', '暂无', 'music/kabuda.mp3', 'https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500']
+  # - ['八连杀', '苏三', 'music/八连杀.mp3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo0SWQx6YrNA8lElaG4OOKLkNkNzLO1PflKg&usqp=CAU']
 
 # 个人介绍
 likes:
@@ -49,7 +49,8 @@ likes:
 
 # 工具配置：封面，标题，介绍，链接
 tools:
-  - ['https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30e94204580a4dbd83a64d4f91a9a6e5~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?', 'PNG图片压缩器', '这是一款无损压缩PNG图片的在线工具，可以童工上传或拖动来批量压缩图片并打包下载', 'http://1.14.43.39:5000/']
+  # - ['https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30e94204580a4dbd83a64d4f91a9a6e5~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?', 'PNG图片压缩器', '这是一款无损压缩PNG图片的在线工具，可以童工上传或拖动来批量压缩图片并打包下载', 'http://1.14.43.39:5000/']
+  - ['https://coke-cola.gitee.io/resume-page/assets/dark-f439b888.jpeg', '在线简历生成器', '一个免费的在线简历生成工具', 'https://coke-cola.gitee.io/resume-page/#/']
 
 # 右侧栏网站信息
 copyright: 蜀ICP备2022005384号-1
@@ -65,9 +66,6 @@ comments:
   recordIP: true
   visitor: true
   enableQQ: true
-
-# 是否开启静态资源的CDN加载方式
-static_load_type: local
 
 # 纪念模式 none: 不设置 all：全部置灰 index: 首页置灰
 gray: none

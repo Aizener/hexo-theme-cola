@@ -55,11 +55,11 @@ pre:active {
         <span><%- date(item.date, 'YYYY-MM-DD HH:mm:ss') %></span>
         <span><%- item.week %></span>
       </h2>
-      <h1 class="log-main-title"><a href="<%- url_for(item.path) %>"><%- item.title %></a></h1>
+      <h1 class="log-main-title"><a href="<%- url_for('./' + item.path) %>"><%- item.title %></a></h1>
       <div class="log-wrapper <%- item.content.length > theme.log_text_num && 'more' %>" style="max-height: <%- theme.log_text_num %>px;">
         <article class="article-content"><%- item.content %></article>
         <% if (item.content.length > theme.log_text_num) { %>
-          <a href="<%- url_for(item.path) %>" class="more-title">阅读更多</a> 
+          <a href="<%- url_for('./' + item.path) %>" class="more-title">阅读更多</a> 
         <% } %>
       </div>
     </div>

@@ -149,8 +149,10 @@
       })
     }
 
+    const rootPath = "<%- config.root %>"
+
     const checkAndSetArticlePageLayout = () => {
-      if (/^\/\d{4}\/\d{2}\/\d{2}\/.*/.test(location.pathname)) {
+      if (/^\/?\d{4}\/\d{2}\/\d{2}\/.*/.test(location.pathname.replace(rootPath, ''))) {
         $('.main-container, .main-right, .main-right-wrapper').addClass('is-article')
       } else {
         $('.main-container, .main-right, .main-right-wrapper').removeClass('is-article')
@@ -176,18 +178,24 @@
         $('#load').slideUp()
         $('#container').slideToggle()
         setTimeout(() => {
-          initScroll()
+          initScroll();
+          window.loadImageFn();
         }, 500)
       }, 500)
     }
     
+    let status = 0
     // 对所有链接跳转事件绑定pjax容器container
-    $(document).pjax('a[target!=_blank]', '#main-container', {fragment:'#main-container', timeout:8000})
+    $(document).pjax('a[target!=_blank]', '#main-container', {
+      container: '#main-container',
+      fragment: '#main-container',
+      timeout: 8000
+    })
 
     $(document).on('pjax:start', function() {
-      // $('.main-container').hide()
     })
     $(document).on('pjax:complete', function() {
+      status = 0
       $('.main-container').addClass('to-up').on('animationend', function() {
         $(this).removeClass('to-up')
       })
@@ -195,6 +203,7 @@
       checkAndSetArticlePageLayout()
     })
     $(document).on('pjax:popstate', function() {
+      status = -1
       checkAndSetArticlePageLayout()
       // $('.main-container').fadeIn()
     })

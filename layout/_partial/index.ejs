@@ -14,7 +14,10 @@
   <div class="index-left">
     <% leftPosts.forEach(function(post){ %>
       <div class="index-article">
-        <img class="index-article--cover" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt="">
+        <!-- <img class="index-article--cover" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="<%- post.cover || 'imgs/default-cover.webp' %>" alt="">
+        </div>
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
@@ -44,7 +47,10 @@
   <div class="index-center">
     <% rightPosts.forEach(function(post){ %>
       <div class="index-article">
-        <img class="index-article--cover" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt="">
+        <!-- <img class="index-article--cover" data-cover="<%- post.cover %>" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="<%- post.cover || 'imgs/default-cover.webp' %>" alt="">
+        </div>
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
           <div>
@@ -94,3 +100,63 @@
     }) %>
   </div>
 <% } %>
+
+<script>
+  var allImgBoxs = document.querySelectorAll('.index-article--box');
+  var windowHeight = window.innerHeight;
+  var boxs = Array.from(allImgBoxs);
+  var timer = null;
+  boxs.forEach((box, idx) => {
+    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
+      box.classList.add('img-loading');
+    } else {
+      const imgDom = box.querySelector('img');
+      imgDom.src = imgDom.dataset.cover;
+    }
+  });
+
+  function scrollFn() {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      loadImage();
+      timer = null;
+    }, 100)
+  }
+
+  if (!window.loadedImage) {
+    document.addEventListener('scroll', scrollFn);
+  }
+
+  function loadImage() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop;
+    if (boxs.every(box => box.loadedImage)) {
+      document.removeEventListener('scroll', scrollFn);
+      window.loadedImage = 1;
+      return;
+    }
+    boxs.forEach((box, idx) => {
+      if (box.loadedImage) {
+        return;
+      }
+      if (box.getBoundingClientRect().top < windowHeight) {
+        const imgDom = box.querySelector('img');
+        imgDom.src = imgDom.dataset.cover;
+        imgDom.onload = () => {
+          box.classList.remove('img-loading')
+          box.loadedImage = true;
+          if (window.loadImageSet) {
+            window.loadImageSet.push(idx);
+          } else {
+            window.loadImageSet = [];
+            window.loadImageSet.push(idx);
+          }
+        }
+      }
+    });
+  }
+
+  window.loadImageFn = loadImage;
+</script>

@@ -8,24 +8,14 @@
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="<%- url_for('imgs/shortcut-icon.ico') %>" type="image/x-icon">
+  <link rel="stylesheet" href="<%- url_for('css/public.css') %>" />
+  <link rel="stylesheet" href="<%- url_for('css/layout.css') %>" />
+  <link rel="stylesheet" href="<%- url_for('css/iconfont.css') %>" />
+  <link rel="stylesheet" href="<%- url_for('css/APlayer.min.css') %>" />
+  <script src="<%- url_for('js/APlayer.min.js') %>"></script>
+  <script src="<%- url_for('js/jquery.min.js') %>"></script>
+  <script src="<%- url_for('js/jquery.pjax.min.js') %>"></script>
 
-  <% if (theme.static_load_type == 'jsdelivr') { %>
-    <link rel="stylesheet" href="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/css/public.css') %>" />
-    <link rel="stylesheet" href="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/css/layout.css') %>" />
-    <link rel="stylesheet" href="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/css/iconfont.css') %>" />
-    <link rel="stylesheet" href="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/css/APlayer.min.css') %>" />
-    <script src="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/js/APlayer.min.js') %>"></script>
-    <script src="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/js/jquery.min.js') %>"></script>
-    <script src="<%- url_for('https://cdn.jsdelivr.net/gh/aizener/hexo-theme-cola@cdn/js/jquery.pjax.min.js') %>"></script>
-  <% } else { %>
-    <link rel="stylesheet" href="<%- url_for('css/public.css') %>" />
-    <link rel="stylesheet" href="<%- url_for('css/layout.css') %>" />
-    <link rel="stylesheet" href="<%- url_for('css/iconfont.css') %>" />
-    <link rel="stylesheet" href="<%- url_for('css/APlayer.min.css') %>" />
-    <script src="<%- url_for('js/APlayer.min.js') %>"></script>
-    <script src="<%- url_for('js/jquery.min.js') %>"></script>
-    <script src="<%- url_for('js/jquery.pjax.min.js') %>"></script>
-  <% } %>
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
     document.title = `<%- title %>`
