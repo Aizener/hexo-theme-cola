@@ -1,0 +1,36 @@
+@import '../var.styl';
+
+.link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &-item {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    margin: 0 15px 15px 15px;
+    block-mixin();
+    img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    p {
+      color: #333;
+    }
+    a {
+      color: #999;
+      margin-top: 5px;
+      font-size: 13px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

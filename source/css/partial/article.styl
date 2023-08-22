@@ -1,0 +1,127 @@
+@import '../var.styl';
+@import '../markdown-theme.css';
+.article {
+  width: calc(100% - 200px);
+  padding: 15px;
+  margin-bottom: 15px;
+  block-mixin();
+  h1 {
+    padding: 10px 0;
+  }
+  &-container {
+    width: 100%;
+    display: flex;
+  }
+  &-cover {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    -o-object-fit: cover;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    @media screen and (min-width: 320px) and (max-width: 1200px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  &-catelogue {
+    width: 200px;
+    &--wrapper {
+      width: 200px;
+      padding-left: 15px;
+      position: fixed;
+    }
+    .catelogue {
+      padding: 10px;
+      margin-top: 15px;
+      block-mixin();
+      &-1 {
+        margin-top: 0;
+        max-height: 400px;
+        overflow-y: auto;
+        .toc {
+          margin-top: 10px;
+        }
+        .toc-link {
+          font-size: 14px;
+          text-decoration: underline;
+        }
+        .toc-child {
+          margin-left: 10px;
+        }
+      }
+      &-2 {
+        font-size: 14px;
+        p {
+          display: flex;
+          justify-content: space-between;
+          word-break: break-all;
+          align-items: center;
+          &:first-child {
+            margin-bottom: 10px;
+          }
+          span {
+            color: gray;
+            min-width: 60px;
+          }
+        }
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  * {
+    user-select: text;
+  }
+  &-info {
+    margin-top: 20px;
+    &--item {
+      display: flex;
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+      &:first-child {
+        justify-content: space-between;
+      }
+    }
+    &--info {
+      overflow: hidden;
+    }
+    &--categories {
+      display: flex;
+      a {
+        color: #1e80ff;
+      }
+    }
+    &--tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      a {
+        margin-bottom: 10px;
+      }
+    }
+    &--date {
+      // margin-top: 10px;
+    }
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .tag-link {
+      color: #fff;
+      margin-right: 10px;
+      font-size: 13px;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background-color: #1e80ff;
+    }
+  }
+}
+
+@import './tags.styl';
+@import './categories.styl';
+@import '../highlight.css';

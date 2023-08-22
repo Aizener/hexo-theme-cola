@@ -1,0 +1,20 @@
+bg-radius-mixin(bg = #fff, radius = 5px) {
+  background-color: bg;
+  border-radius: radius;
+}
+
+box-shadow-mixin(size = 5px, color = #333) {
+  box-shadow: 0 0 size color;
+}
+
+block-mixin() {
+  bg-radius-mixin();
+  box-shadow-mixin();
+}
+
+flex-center-mixin() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

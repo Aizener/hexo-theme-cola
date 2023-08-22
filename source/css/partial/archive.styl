@@ -1,0 +1,58 @@
+@import '../var.styl';
+  
+.archive {
+  padding: 15px;
+  block-mixin();
+  &-title {
+    color: skyblue;
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+  }
+
+  &-list {
+    width: 100%;
+    display: flex;
+    & > li {
+      width: 100%;
+    }
+    &__year {
+      width: 100%;
+      h2 {
+        color: #333;
+        font-size: 24px;
+        text-shadow: 5px 28px #ddd;
+      }
+    }
+    &__month {
+      color: #666;
+      font-size: 16px;
+      margin: 5px 0 0 15px;
+    }
+    &__post {
+      margin-left: 30px;
+      list-style: circle;
+      margin-top: 5px;
+      &:first-child {
+        margin-top: 10px;
+      }
+      & > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & > a {
+          color: #333;
+          font-size: 14px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        & > span {
+          color: gray;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

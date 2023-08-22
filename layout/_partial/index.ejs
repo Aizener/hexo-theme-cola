@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<%- url_for('css/partial/index.css') %>" />
+
 <%
   const leftPosts = [], rightPosts = []
   page.per_page = 2
@@ -16,7 +18,7 @@
       <div class="index-article">
         <!-- <img class="index-article--cover" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt=""> -->
         <div class="index-article--box">
-          <img class="index-article--cover" data-cover="<%- post.cover || 'imgs/default-cover.webp' %>" alt="">
+          <img class="index-article--cover" data-cover="<%- post.cover || 'imgs/default-cover.webp' %>" alt="<%- post.title %>" />
         </div>
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
@@ -49,7 +51,7 @@
       <div class="index-article">
         <!-- <img class="index-article--cover" data-cover="<%- post.cover %>" src="<%- url_for(post.cover || 'imgs/default-cover.webp') %>" alt=""> -->
         <div class="index-article--box">
-          <img class="index-article--cover" data-cover="<%- post.cover || 'imgs/default-cover.webp' %>" alt="">
+          <img class="index-article--cover" data-cover="<%- post.cover || 'imgs/default-cover.webp' %>" alt="<%- post.title %>" />
         </div>
         <div class="index-article--content">
           <a href="<%- url_for(post.path) %>"><%- post.title %> </a>
@@ -125,6 +127,9 @@
     }, 100)
   }
 
+  setTimeout(() => {
+    loadImage();
+  }, 100);
   if (!window.loadedImage) {
     document.addEventListener('scroll', scrollFn);
   }
@@ -144,19 +149,22 @@
       if (box.getBoundingClientRect().top < windowHeight) {
         const imgDom = box.querySelector('img');
         imgDom.src = imgDom.dataset.cover;
+        // 图片成功加载
         imgDom.onload = () => {
-          box.classList.remove('img-loading')
+          box.classList.remove('img-loading');
           box.loadedImage = true;
-          if (window.loadImageSet) {
-            window.loadImageSet.push(idx);
-          } else {
+          if (!window.loadImageSet) {
             window.loadImageSet = [];
-            window.loadImageSet.push(idx);
           }
+          window.loadImageSet.push(idx);
+        }
+        // 图片加载失败
+        imgDom.onerror = () => {
+          box.classList.remove('img-loading');
+          box.classList.add('img-error');
+          imgDom.src = '/imgs/404.png';
         }
       }
     });
   }
-
-  window.loadImageFn = loadImage;
 </script>

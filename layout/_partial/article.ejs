@@ -1,24 +1,4 @@
-<style>
-pre::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
-  background-color:#F5F5F5;
-}
-/*定义滚动条轨道
-内阴影+圆角*/
-pre::-webkit-scrollbar-track {
-  background-color:#F5F5F5;
-}
-/*定义滑块
-内阴影+圆角*/
-pre::-webkit-scrollbar-thumb {
-  background-color: rgb(69, 83, 100);
-}
-
-pre:active {
-  background-color: rgb(81, 95, 116);
-}
-</style>
+<link rel="stylesheet" href="<%- url_for('css/partial/article.css') %>" />
 
 <div class="article-container">
   <div class="article">
@@ -49,7 +29,7 @@ pre:active {
         <img src="<%- url_for(post.cover || '/imgs/default-cover.webp') %>" alt="" class="article-cover">
       </div>
     </div>
-    <article class="article-content">
+    <article class="article-content markdown-body">
       <%- post.content %>
     </article>
     <% if (theme.comments.enable) { %>
@@ -93,7 +73,6 @@ pre:active {
   </div>
 </div>
 
-<script src="<%- url_for('http://cdn.yangxiang.cc/prism.js') %>"></script>
 <% if (theme.comments.enable) { %>
 <script>
   // var定义，避免pjax重新进来造成的重复声明错误

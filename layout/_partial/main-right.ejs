@@ -54,10 +54,8 @@
         const newDom = operateDom.cloneNode(true);
         const _backtopDom = newDom.querySelector('.backtop');
         const _commentDom = newDom.querySelector('.turn-comment');
-        console.log(_commentDom)
         _backtopDom.addEventListener('click', () => backTopEvent());
         _commentDom.addEventListener('click', () => commentDomEvent());
-
         cateloguDom.appendChild(newDom);
       } else {
         commentDom.classList.add('hidden')

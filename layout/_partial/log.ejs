@@ -1,18 +1,5 @@
-<!-- <%
-  const content = page.content
-  const contentArr = content.split('<hr>')
-  const list = []
-  contentArr.forEach(item => {
-    const result = item.match(/<li>(.*)<\/li>/g)
-    if (result) {
-      list.push({
-        date: result[0].substring(4, result[0].length - 5),
-        week: result[1].substring(4, result[1].length - 5),
-        text: result[2].substring(4, result[2].length - 5),
-      })
-    }
-  })
-%> -->
+<link rel="stylesheet" href="<%- url_for('css/partial/log.css') %>" />
+
 <%
   const weekText = ['天', '一', '二', '三', '四', '五', '六']
   let logPages = site.pages.filter(item => {
@@ -27,27 +14,7 @@
     item.week = '星期' + weekText[day]
   })
 %>
-<style>
-pre::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
-  background-color:#F5F5F5;
-}
-/*定义滚动条轨道
-内阴影+圆角*/
-pre::-webkit-scrollbar-track {
-  background-color:#F5F5F5;
-}
-/*定义滑块
-内阴影+圆角*/
-pre::-webkit-scrollbar-thumb {
-  background-color: rgb(69, 83, 100);
-}
 
-pre:active {
-  background-color: rgb(81, 95, 116);
-}
-</style>
 <div class="log">
   <% logPages.forEach(item => { %>
     <div class="log-item">
@@ -64,4 +31,7 @@ pre:active {
       </div>
     </div>
   <% }) %>
+  <% if (logPages.length == 0) { %>
+    <%- partial('_partial/empty', { title: 'Hello World' }) %>
+  <% } %>
 </div>

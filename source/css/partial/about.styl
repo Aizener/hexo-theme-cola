@@ -1,0 +1,73 @@
+@import '../var.styl';
+  
+.about {
+  padding: 15px;
+  block-mixin();
+  &-top {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  &-title {
+    position: relative;
+    z-index: 2;
+    h2 {
+      position: relative;
+      z-index: 2;
+      color: #1E90FF;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20%;
+      height: 50%;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(to right, skyblue, aliceblue);
+      border-radius: 0 3px 3px 0;
+      z-index: 0;
+    }
+  }
+  &-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  &-avatar {
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-shadow: 0 0 5px #999;
+  }
+  &-detail {
+    display: flex;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px inset #ccc;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 10px;
+      height: 10px;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      box-shadow: 0 0 5px inset #ccc;
+    }
+    p {
+      margin: 5px 10px;
+      font-size: 14px;
+      color: #333;
+    }
+  }
+  &-content {
+    padding: 15px 0;
+  }
+}

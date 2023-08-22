@@ -3,6 +3,7 @@ $headerHeight = 100px;
 $footerHeight = 0px;
 $mainLeftWidth = 200px;
 $mainRightWidth = 250px;
+@import './var.styl';
 
 .container {
   width: 100%;
@@ -200,10 +201,8 @@ $mainRightWidth = 250px;
       width: $mainLeftWidth;
     }
     &--block {
-      border-radius: 5px;
+      block-mixin();
       overflow: hidden;
-      background-color: #fff;
-      box-shadow: 0 0 5px #333;
       margin-top: 15px;
       &:first-child {
         margin-top: 0;
@@ -379,9 +378,8 @@ $mainRightWidth = 250px;
       }
     }
     &--board {
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 5px #333;
+      block-mixin();
+      overflow: hidden;
     }
     &--title {
       display: flex;
@@ -404,10 +402,8 @@ $mainRightWidth = 250px;
     &--site {
       padding: 15px;
       margin-top: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px #333;
-      background-color: #fff;
       font-size: 13px;
+      block-mixin();
     }
     &--power {
       display: flex;
@@ -439,21 +435,18 @@ $mainRightWidth = 250px;
   display: flex;
 }
 .operate-item {
-  background-color: #fff;
   padding: 10px;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   margin-top: 15px;
-  box-shadow: 0 0 5px #333;
   color: #333;
   position: relative;
   cursor: pointer;
   overflow: hidden;
   margin-right: 8px;
-//  transition: opacity .5s;
+  block-mixin();
   &:last-child {
     margin-right: 0;
   }
