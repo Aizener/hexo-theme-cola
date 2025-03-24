@@ -23,4 +23,4 @@
 
 ### 使用
 
-怎样使用`hexo-theme-cola`主题，详见：<a href="http://1.14.43.39:3000/2022/02/17/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-theme-cola%E4%B8%BB%E9%A2%98/](https://aizener.github.io/2022/02/17/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-theme-cola%E4%B8%BB%E9%A2%98">如何使用hexo-theme-color主题</a>
+怎样使用`hexo-theme-cola`主题，详见：[如何使用hexo-theme-color主题](https://aizener.github.io/2022/02/17/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-theme-cola%E4%B8%BB%E9%A2%98)。
